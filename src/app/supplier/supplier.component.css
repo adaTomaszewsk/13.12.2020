@@ -1,0 +1,29 @@
+ul {
+  margin-top: 50px;
+}
+
+a{
+  color: #2855BD;
+  font-weight: bolder;
+  font: 23px calibri;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 20px;
+}
+
+
+#panel{
+  width:1000px;
+  margin: auto auto auto;
+}
+#panel2{
+  height: 50px;
+}
+#k1{
+  font: 15px Calibri;
+  margin-top: -40px;
+}
+#k2{
+  font: 15px Calibri;
+  margin-top: -40px;
+}

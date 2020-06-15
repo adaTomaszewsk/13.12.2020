@@ -1,0 +1,51 @@
+<!--<div class="jumbotron text-center">
+  <h1>ConsultMed</h1>
+  <p>System stworzony z myślą o pacjentach</p>
+</div>
+-->
+
+<div class="row">
+  <div class="col-12">
+    <app-alerts></app-alerts>
+  </div>
+  <div class="col-md-6 offset-md-3 mt-5">
+
+      <div class="card" id="panel">
+        <div class="card-body">
+      <h1>Zaloguj się do CookCar</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Adres e-mail</label>
+        <input type="email" formControlName="email" id=email class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required" id="error_email">Adres  e-mail jest wymgany</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Hasło</label>
+        <input type="password" formControlName="password" id=password class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required" id="error_password">Hasło jest wymagane</div>
+        </div>
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          ZALOGUJ SIĘ
+        </button>
+        <button class="btn btn-primary" routerLink="/rejestracja" type="button">
+        ZAREJESTRUJ SIĘ
+        </button>
+        <h2 id="account">Nie masz konta?</h2>
+          <div *ngIf="error" class="alert alert-danger mt-3 mb-0"><p>Błędne dane logowania.</p></div>
+      </div>
+      </form>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!--<hr>-->
+<!--<form [formGroup]="testForm">-->
+<!--  <select [formControlName]="'test'">-->
+<!--    <option *ngFor="let item of select" [value]="item.id">{{item.value}}</option>-->
+<!--  </select>-->
+<!--</form>-->

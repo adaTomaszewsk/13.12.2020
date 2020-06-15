@@ -1,0 +1,40 @@
+#k{
+  width: 100px;
+  background-color: white;
+  color: dimgrey;
+  border: 2px solid dimgrey;
+  font: bold 15px Calibri;
+  margin-top: 5px;
+}
+
+#k2{
+  width: 135px;
+  background-color: white;
+  color: #DAA520	;
+  border: 2px solid #DAA520	;
+  font: bold 15px Calibri;
+  margin-top: 5px;
+}
+
+h2{
+  color: #DAA520;
+  font-weight: bold;
+  font-family: Calibri;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+#margines{
+  width: 1000px;
+  margin: auto auto auto;
+}
+
+#k3{
+  background-color: white;
+  color: darkred;
+  border: 2px solid darkred;
+  font: bold 15px Calibri;
+  margin-top: 5px;
+  width: 100px;
+  margin-left: 20px;
+}

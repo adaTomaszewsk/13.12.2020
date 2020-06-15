@@ -1,0 +1,122 @@
+h1 {
+  color: #2855BD;
+  font-weight: bold;
+  font-family: Calibri;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+}
+
+#panel {
+  margin: 50px auto auto;
+
+  width: 550px;
+  height: 810px;
+  /*margin: 120px 200px  auto;*/
+  /*margin: auto auto auto;*/
+  padding: 15px 0 0;
+  background: #fff;
+  border: 1px solid silver;
+  font: 20px calibri;
+  -webkit-box-shadow: 0 0 2px silver;
+  -moz-box-shadow: 0 0 2px silver;
+  box-shadow: 0 0 2px silver;
+
+}
+
+button {
+  width: 180px;
+  height: 60px;
+  margin-left: 320px;
+  background-color: white;
+  color: #2855BD;
+  border: 2px solid #2855BD;
+  font-weight: bolder;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+button[disabled]{
+  width: 180px;
+  height: 60px;
+  margin-left: 320px;
+  background-color: white;
+  color: #2855BD;
+  border: 2px solid #2855BD;
+  font-weight: bolder;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+input {
+  display: block;
+  width: 450px;
+  margin-left: 50px;
+  padding: 10px 5px;
+  border: 1px solid silver;
+  /*outline: 5px solid #ebebeb;*/
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+p{
+  color: dimgrey;
+  margin-left: 50px;
+  font: bold 20px Calibri;
+
+}
+
+
+label {
+  margin-bottom: -25px;
+  margin-left: 90px;
+  font: 17px Calibri;
+  color: dimgrey;
+  margin-top: -100px;
+
+}
+
+#radio{
+  margin-left: -250px;
+  margin-top: -50px;
+}
+
+
+#account{
+  color: dimgrey;
+  margin-left: 100px;
+  font-weight: bolder;
+  margin-top: -70px;
+
+}
+
+#passwordMin{
+  margin-left: 50px;
+  font-size: 15px;
+  margin-right: 50px;
+
+}
+
+#numberMin{
+  margin-left: 50px;
+  font-size: 15px;
+  margin-right: 50px;
+
+}
+#sexMin{
+  margin-left: 50px;
+  font-size: 15px;
+  margin-bottom: -30px;
+}
+
+#sex{
+  display: block;
+  width: 50px;
+  margin-left: 50px;
+  padding: 10px 5px;
+  border: 1px solid silver;
+  /*outline: 5px solid #ebebeb;*/
+  font-size: 20px;
+  margin-top: 20px;
+}

@@ -1,0 +1,168 @@
+<!--<div class="row">-->
+<!--  <div class="col-md-6 offset-md-3 mt-5">-->
+
+<!--    <div class="card" id="panel">-->
+<!--      <div class="card-body">-->
+<!--        <h1>Zaloguj się do ConsultMED</h1>-->
+<!--        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">-->
+<!--          <div class="form-group">-->
+<!--            <label for="name">Imie</label>-->
+<!--            <input type="text" formControlName="name" id=email class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />-->
+<!--            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">-->
+<!--              <div *ngIf="f.name.errors.required" id="error_email">Adres  e-mail jest wymgany</div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label for="surname">Nazwisko</label>-->
+<!--            <input type="text" formControlName="surname" id=password class="form-control" [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" />-->
+<!--            <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">-->
+<!--              <div *ngIf="f.surname.errors.required" id="error_password">Hasło jest wymagane</div>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <label for="email">Adres e-mail</label>-->
+<!--              <input type="email" formControlName="email"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />-->
+<!--              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">-->
+<!--                <div *ngIf="f.email.errors.required" >Adres  e-mail jest wymgany</div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <label for="password">Hasło</label>-->
+<!--              <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />-->
+<!--              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">-->
+<!--                <div *ngIf="f.password.errors.required" >Hasło jest wymagane</div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <label for="pesel">Pesel</label>-->
+<!--              <input type="text" formControlName="pesel"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emapeselil.errors }" />-->
+<!--              <div *ngIf="submitted && f.pesel.errors" class="invalid-feedback">-->
+<!--                <div *ngIf="f.pesel.errors.required" >Adres  e-mail jest wymgany</div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <label for="phoneNumber">Numer telefonu</label>-->
+<!--              <input type="tel" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />-->
+<!--              <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">-->
+<!--                <div *ngIf="f.phoneNumber.errors.required" >Hasło jest wymagane</div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--              <label for="sex">Płeć</label>-->
+<!--              <input type="text" formControlName="password"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sex.errors }" />-->
+<!--              <div *ngIf="submitted && f.sex.errors" class="invalid-feedback">-->
+<!--                <div *ngIf="f.sex.errors.required" >Hasło jest wymagane</div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <button [disabled]="loading" class="btn btn-primary">-->
+<!--              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>-->
+<!--              ZALOGUJ SIĘ-->
+<!--            </button>-->
+<!--            <button class="btn btn-primary" routerLink="/logowanie" type="button">-->
+<!--              ZAREJESTRUJ SIĘ-->
+<!--            </button>-->
+<!--            <h2 id="account">Nie masz konta?</h2>-->
+<!--            <div *ngIf="error" class="alert alert-danger mt-3 mb-0"><p>Błędne dane logowania.</p></div>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="row" [hidden]="submitted">
+  <div class="col-md-6 offset-md-3 mt-5">
+    <div id="panel">
+      <h1>Zarejestruj się</h1>
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <div class="form-group">
+          <!-- <label for="name">Imię</label>-->
+          <input
+            type="text"
+            id="name" class="form-control"
+            ngModel
+            name="name"
+            required
+            [(ngModel)]="patient.name"
+
+            placeholder="Imię"
+          />
+        </div>
+        <div class="form-group">
+          <!-- <label for="surname">Nazwisko</label>-->
+          <input
+            type="text"
+            id="surname"
+            class="form-control"
+            ngModel
+            name="surname"
+            required
+            [(ngModel)]="patient.surname"
+
+            placeholder="Nazwisko"
+          />
+        </div>
+        <div class="form-group">
+          <!--<label for="email">E-mail</label>-->
+          <input
+            type="email"
+            id="email" class="form-control"
+            ngModel
+            name="email"
+            required
+            [(ngModel)]="patient.email"
+            placeholder="E-mail"
+          />
+        </div>
+        <div class="form-group">
+          <!-- <label for="password">Hasło</label>-->
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            ngModel
+            name="password"
+            required
+            [(ngModel)]="patient.password"
+           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            placeholder="Hasło"
+          />
+          <small id="passwordMin" class="form-text text-muted">Hasło musi składać się przynajmniej z 1 czyfry i jednej dużej oraz małej litery oraz min. 8 znaków.</small>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            id="number" class="form-control"
+            ngModel
+            name="number"
+            pattern="[0-9]{9}"
+            placeholder="Numer telefonu"
+            [(ngModel)]="patient.phoneNumber"
+
+          />
+          <small id="numberMin" class="form-text text-muted">Numer telefonu jest opcjonalny.</small>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
+            ZAREJESTRUJ SIĘ
+          </button>
+          <button class="btn btn-primary" (click)="gotoList()" type="button">
+            ZALOGUJ SIĘ
+          </button>
+        </div>
+      </form>
+      <h2 id="account">Masz już konto?</h2>
+    </div>
+  </div>
+</div>
+
+<div [hidden]="!submitted" class="col-md-15 offset-md-3 mt-15">
+  <div class="card" id="panel3">
+    <div class="card-body" >
+      <div >
+        <h4>Rejestracja przebiegła pomyślnie.</h4>
+        <br>
+        <button class="btn-primary"  id="new" (click)="newPatient()"><i class="fas fa-plus"></i>  Zaloguj się</button>
+      </div>
+    </div>
+  </div>
+</div>
