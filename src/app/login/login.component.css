@@ -1,5 +1,5 @@
 h1 {
-  color: #2855BD;
+  color: #DAA520;
   font-weight: bold;
   font-family: Calibri;
   margin-top: 30px;
@@ -29,8 +29,8 @@ button {
   height: 60px;
   margin-left: 300px;
   background-color: white;
-  color: #2855BD;
-  border: 2px solid #2855BD;
+  color: #DAA520;
+  border: 2px solid #DAA520;
   font-weight: bolder;
   display: block;
   font-size: 20px;
@@ -41,16 +41,16 @@ button[disabled]{
   height: 60px;
   margin-left: 320px;
   background-color: white;
-  color: #2855BD;
-  border: 2px solid #2855BD;
+  color: #DAA520;
+  border: 2px solid #DAA520;
   font-weight: bolder;
   display: block;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 a{
-  color: #2855BD;
+  color: #DAA520;
   font: Bold 22px Calibri;
   margin-top: 0px;
   margin-bottom: 10px;
@@ -73,19 +73,23 @@ input {
   margin: auto auto auto;
   padding: 10px 5px;
   border: 1px solid silver;
-  outline: 5px solid #ebebeb;
+  outline: 5px solid honeydew;
   font-size: 22px;
 }
 
 #account{
-  color: dimgrey;
-  margin-left: 80px;
-  font-weight: bolder;
-  margin-top: -70px;
+   color: dimgrey;
+   margin-left: 80px;
+   font-weight: bolder;
+   margin-top: -70px;
+
+ }
+
+
+#password{
+  margin-bottom: 70px;
 
 }
-
-
 #error_email{
   margin-left: 50px;
 }
