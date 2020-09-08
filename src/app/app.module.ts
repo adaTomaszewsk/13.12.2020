@@ -14,6 +14,8 @@ import { CustomerOrdersComponent } from './customer-orders/customer-orders.compo
 import { UndeliveredOrdersComponent } from './undelivered-orders/undelivered-orders.component';
 import { BasketComponent } from './basket/basket.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import {OrderComponent} from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { LoginComponent } from './login/login.component';
     UndeliveredOrdersComponent,
     BasketComponent,
     LoginComponent,
+    RegisterComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,

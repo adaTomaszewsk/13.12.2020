@@ -1,5 +1,5 @@
 h1 {
-  color: #2855BD;
+  color: #DAA520;
   font-weight: bold;
   font-family: Calibri;
   margin-top: 30px;
@@ -11,7 +11,7 @@ h1 {
   margin: 50px auto auto;
 
   width: 550px;
-  height: 810px;
+  height: 680px;
   /*margin: 120px 200px  auto;*/
   /*margin: auto auto auto;*/
   padding: 15px 0 0;
@@ -29,8 +29,8 @@ button {
   height: 60px;
   margin-left: 320px;
   background-color: white;
-  color: #2855BD;
-  border: 2px solid #2855BD;
+  color:#DAA520;
+  border: 2px solid #DAA520;
   font-weight: bolder;
   display: block;
   font-size: 20px;
@@ -41,8 +41,8 @@ button[disabled]{
   height: 60px;
   margin-left: 320px;
   background-color: white;
-  color: #2855BD;
-  border: 2px solid #2855BD;
+  color: #DAA520;
+  border: 2px solid #DAA520;
   font-weight: bolder;
   display: block;
   font-size: 20px;
@@ -103,20 +103,4 @@ label {
   font-size: 15px;
   margin-right: 50px;
 
-}
-#sexMin{
-  margin-left: 50px;
-  font-size: 15px;
-  margin-bottom: -30px;
-}
-
-#sex{
-  display: block;
-  width: 50px;
-  margin-left: 50px;
-  padding: 10px 5px;
-  border: 1px solid silver;
-  /*outline: 5px solid #ebebeb;*/
-  font-size: 20px;
-  margin-top: 20px;
 }

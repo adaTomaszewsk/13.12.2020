@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {Patient} from '../models';
-import {PatientService} from '../services';
-import {LoginService} from '../services/login.service';
-import {Router} from '@angular/router';
-import {first} from 'rxjs/operators';
-import {HttpErrorResponse} from '@angular/common/http';
-import {AlertService} from '../services/alert.service';
+// import {Patient} from '../models';
+// import {PatientService} from '../services';
+// import {LoginService} from '../services/login.service';
+// import {Router} from '@angular/router';
+// import {first} from 'rxjs/operators';
+// import {HttpErrorResponse} from '@angular/common/http';
+// import {AlertService} from '../services/alert.service';
 
 @Component({
   selector: 'app-register',
@@ -14,59 +14,80 @@ import {AlertService} from '../services/alert.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  patient: Patient = new Patient();
-  submitted = false;
-  loading = false;
 
 
-  constructor(private patientService: PatientService,
-              private authenticationService: LoginService,
-              private router: Router,
-              private alertService: AlertService) {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
-  }
-
-  onSubmit(patient: NgForm) {
-    console.log(patient.value);
-    this.submitted = true;
-    this.alertService.clear();
-    this.save();
-  }
-
-  ngOnInit(): void {
-  }
-
-  newPatient(): void {
-    this.submitted = false;
-    this.patient = new Patient();
-  }
-
-  save() {
-    this.loading = true;
-
-    this.patientService.register(this.patient)
-      .pipe(first())
-      .subscribe(
-        data => {
-          console.log(data);
-          this.alertService.success(data, true);
-          this.router.navigate(['/logowanie']);
-        },
-        (httpErrorResponse: HttpErrorResponse) => {
-          this.alertService.error(httpErrorResponse.error);
-          this.loading = false;
-        });
-    this.patient = new Patient();
-    this.gotoList();
+  ngOnInit() {
   }
 
 
-  gotoList() {
-    this.router.navigate(['/logowanie']);
-  }
-}
+  // good
+  // ngOnInit(): void {
+  //   throw new Error("Method not implemented.");
+  // }
+
+//   patient: Patient = new Patient();
+//   submitted = false;
+//   loading = false;
+//
+//
+//   constructor(private patientService: PatientService,
+//               private authenticationService: LoginService,
+//               private router: Router,
+//               private alertService: AlertService) {
+//     if (this.authenticationService.currentUserValue) {
+//       this.router.navigate(['/']);
+//     }
+//   }
+//
+//   onSubmit(patient: NgForm) {
+//     console.log(patient.value);
+//     this.submitted = true;
+//     this.alertService.clear();
+//     this.save();
+//   }
+//
+//   ngOnInit(): void {
+//   }
+//
+//   newPatient(): void {
+//     this.submitted = false;
+//     this.patient = new Patient();
+//   }
+//
+//   save() {
+//     this.loading = true;
+//
+//     this.patientService.register(this.patient)
+//       .pipe(first())
+//       .subscribe(
+//         data => {
+//           console.log(data);
+//           this.alertService.success(data, true);
+//           this.router.navigate(['/logowanie']);
+//         },
+//         (httpErrorResponse: HttpErrorResponse) => {
+//           this.alertService.error(httpErrorResponse.error);
+//           this.loading = false;
+//         });
+//     this.patient = new Patient();
+//     this.gotoList();
+//   }
+//
+//
+//   gotoList() {
+//     this.router.navigate(['/logowanie']);
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
 
 // public patient: any = {};
 //
@@ -237,3 +258,4 @@ export class RegisterComponent implements OnInit {
 //     this.router.navigate(['/logowanie']);
 //   }
 // }
+}
