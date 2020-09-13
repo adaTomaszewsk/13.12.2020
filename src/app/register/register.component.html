@@ -1,16 +1,18 @@
 
-<!--<div class="row" [hidden]="submitted">-->
-<div class="row" >
+<div class="row" [hidden]="submitted">
   <div class="col-md-6 offset-md-3 mt-5">
     <div id="panel">
-      <h1>Zarejestruj się</h1>
-      <form>
+      <h1>Zarejestruj się do COOKCar</h1>
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
         <div class="form-group">
           <input
             type="text"
             id="name" class="form-control"
             ngModel
             name="name"
+            required
+            [(ngModel)]="customer.name"
+
             placeholder="Imię"
           />
         </div>
@@ -21,6 +23,9 @@
             class="form-control"
             ngModel
             name="surname"
+            required
+            [(ngModel)]="customer.surname"
+
             placeholder="Nazwisko"
           />
         </div>
@@ -30,6 +35,8 @@
             id="email" class="form-control"
             ngModel
             name="email"
+            required
+            [(ngModel)]="customer.email"
             placeholder="E-mail"
           />
         </div>
@@ -40,6 +47,8 @@
             class="form-control"
             ngModel
             name="password"
+            required
+            [(ngModel)]="customer.password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             placeholder="Hasło"
           />
@@ -57,10 +66,10 @@
           <small id="numberMin" class="form-text text-muted">Numer telefonu jest opcjonalny.</small>
         </div>
         <div>
-          <button class="btn btn-primary" type="submit" >
+          <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
           ZAREJESTRUJ SIĘ
           </button>
-          <button class="btn btn-primary" type="button">
+          <button class="btn btn-primary" (click)="gotoList()" type="button">
           ZALOGUJ SIĘ
           </button>
         </div>
@@ -70,8 +79,7 @@
   </div>
 </div>
 
-<!--&lt;!&ndash;<div [hidden]="!submitted" class="col-md-15 offset-md-3 mt-15">&ndash;&gt;-->
-<!--<div class="col-md-15 offset-md-3 mt-15">-->
+<!--<div [hidden]="!submitted" class="col-md-15 offset-md-3 mt-15">-->
 <!--  <div class="card" id="panel3">-->
 <!--    <div class="card-body" >-->
 <!--      <div>-->
@@ -82,3 +90,4 @@
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
+

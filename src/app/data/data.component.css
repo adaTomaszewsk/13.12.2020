@@ -1,0 +1,56 @@
+h3{
+  color: dimgrey;
+  font-family: Calibri;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+button{
+  background-color: white;
+  color: #2855BD;
+  border: 2px solid #2855BD;
+  display: block;
+  margin-bottom: 20px;
+}
+
+label{
+  margin-bottom: 20px;
+}
+
+#panel {
+  width: 850px;
+  margin: auto auto auto;
+}
+
+button {
+  margin-top: 30px;
+  width: 200px;
+  height: 60px;
+  margin-left: 50px;
+  background-color: white;
+  color: dimgrey;
+  border: 2px solid dimgrey;
+  font-weight: bolder;
+  display: block;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+p{
+  color: dimgrey;
+  margin-left: 50px;
+  font: bold 20px Calibri;
+}
+
+h5{
+  font: 18px Calibri;
+  font-weight: bold;
+}
+
+#spec {
+  font: 18px Calibri;
+}
+hr{
+  width: 600px;
+  margin-left: -3px;
+}

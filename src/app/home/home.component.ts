@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
-import {Role, User} from '../models';
+import {User} from '../models';
 import {Router} from '@angular/router';
 import {LoginService} from '../services/login.service';
+import {Role} from '../models/role';
 
 @Component({
   selector: 'app-home',
@@ -20,8 +21,9 @@ export class HomeComponent {
   ) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
-  get isDoctor() {
-    return this.currentUser && this.currentUser.role === Role.Doctor;
+  get isSupplier() {
+    // @ts-ignore
+    return this.currentUser && this.currentUser.userRoles === Role.Supplier;
   }
 
 

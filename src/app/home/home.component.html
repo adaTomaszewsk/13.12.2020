@@ -1,6 +1,5 @@
-<!--<app-header-doctor *ngIf="zmienna"></app-header-doctor>-->
-<app-header-patient *ngIf="!isDoctor"></app-header-patient>
+<app-customer *ngIf="!isSupplier"></app-customer>
 <router-outlet></router-outlet>
 
-<app-header-doctor *ngIf="isDoctor"></app-header-doctor>
+<app-supplier *ngIf="isSupplier"></app-supplier>
 <router-outlet></router-outlet>
