@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Dish} from '../models';
+import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
+import {DishService} from '../services';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  dishes: Observable<Dish[]>;
 
-  ngOnInit(): void {
+  constructor(private dishService: DishService,
+              private router: Router) {}
+
+  ngOnInit() {
+    this.reloadData();
+    // this.id_Patient= JSON.parse(localStorage.getItem('currentUser')).userId;
+  }
+
+  // reloadData() {
+  //   this.forms = this.formService.getFormList();
+  // }
+
+  reloadData() {
+    this.dishes = this.dishService.getDishes();
   }
 
 }

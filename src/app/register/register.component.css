@@ -48,7 +48,11 @@ button[disabled]{
   font-size: 20px;
   margin-bottom: 20px;
 }
-
+button:hover {
+  background-color: #DAA520;
+  color: white;
+  border: #DAA520;
+}
 input {
   display: block;
   width: 450px;

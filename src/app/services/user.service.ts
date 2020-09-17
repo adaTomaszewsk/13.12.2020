@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {LoggedUser} from '../models/loggedUser';
+import {CustomerInterface} from '../models/customer';
 
 
 @Injectable({
@@ -10,14 +11,14 @@ import {LoggedUser} from '../models/loggedUser';
 export class UserService {
   private currentUserSubject: BehaviorSubject<string>;
 
-  private baseUrl = 'http://localhost:8080/customers';
+  // private baseUrl = 'http://localhost:8080/customers';
 
   constructor(private http: HttpClient) {
   }
 
-  public get currentUserValue(): string {
-    return this.currentUserSubject.value;
-  }
+  // public get currentUserValue(): string {
+  //   return this.currentUserSubject.value;
+  // }
   //
   // getUser(id_Patient: number): Observable<any> {
   //   const userToken = JSON.parse(localStorage.getItem('currentUser')).token;
@@ -67,11 +68,17 @@ export class UserService {
   // }
   //
   //
-  register(loggedUser: LoggedUser) {
-    return this.http.post<string>(`${this.baseUrl}`, loggedUser, {
-      responseType: 'text' as 'json'
-    });
+  // register(loggedUser: LoggedUser) {
+  //   return this.http.post<string>(`${this.baseUrl}`, loggedUser, {
+  //     responseType: 'text' as 'json'
+  //   });
+  // }
+
+  register(customer: CustomerInterface) {
+    return this.http.post(`http://localhost:8080/customers`, customer);
   }
+
+
   //
   //
   //

@@ -1,10 +1,112 @@
+/*h1 {*/
+/*  color: #DAA520;*/
+/*  font-weight: bold;*/
+/*  font-family: Calibri;*/
+/*  margin-top: 30px;*/
+/*  margin-bottom: 50px;*/
+/*  margin-left: 35px;*/
+/*}*/
+
+
+/*#panel {*/
+/*  margin: 50px auto auto;*/
+
+/*  width: 550px;*/
+/*  height: 590px;*/
+/*  !*margin: 120px 200px  auto;*!*/
+/*  !*margin: auto auto auto;*!*/
+/*  padding: 15px 0 0;*/
+/*  !*background: #fff;*!*/
+/*  border: 1px solid silver;*/
+/*  font: 20px calibri;*/
+/*  letter-spacing: -1px;*/
+/*  -webkit-box-shadow: 0 0 2px silver;*/
+/*  -moz-box-shadow: 0 0 2px silver;*/
+/*  box-shadow: 0 0 2px silver;*/
+/*}*/
+
+/*button {*/
+/*  width: 180px;*/
+/*  height: 60px;*/
+/*  margin-left: 300px;*/
+/*  background-color: white;*/
+/*  color: #DAA520;*/
+/*  border: 2px solid #DAA520;*/
+/*  font-weight: bolder;*/
+/*  display: block;*/
+/*  font-size: 20px;*/
+/*  margin-bottom: 30px;*/
+/*}*/
+/*button[disabled]{*/
+/*  width: 180px;*/
+/*  height: 60px;*/
+/*  margin-left: 320px;*/
+/*  background-color: white;*/
+/*  color: #DAA520;*/
+/*  border: 2px solid #DAA520;*/
+/*  font-weight: bolder;*/
+/*  display: block;*/
+/*  font-size: 20px;*/
+/*  margin-bottom: 30px;*/
+/*}*/
+
+/*a{*/
+/*  color: #DAA520;*/
+/*  font: Bold 22px Calibri;*/
+/*  margin-top: 0px;*/
+/*  margin-bottom: 10px;*/
+/*  margin-left: 25px;*/
+/*}*/
+
+/*label {*/
+/*  display: block;*/
+/*  width: 280px;*/
+/*  margin-left: 25px;*/
+/*  padding: 10px 5px;*/
+/*  color: dimgrey;*/
+/*  text-shadow: 0 0 1px silver;*/
+/*  font: Bold 20px Calibri;*/
+/*}*/
+
+/*input {*/
+/*  display: block;*/
+/*  width: 450px;*/
+/*  margin: auto auto auto;*/
+/*  padding: 10px 5px;*/
+/*  border: 1px solid silver;*/
+/*  outline: 5px solid honeydew;*/
+/*  font-size: 22px;*/
+/*}*/
+
+/*#account{*/
+/*   color: dimgrey;*/
+/*   margin-left: 80px;*/
+/*   font-weight: bolder;*/
+/*   margin-top: -70px;*/
+
+/* }*/
+
+
+/*#password{*/
+/*  margin-bottom: 30px;*/
+
+/*}*/
+/*#error_email{*/
+/*  margin-left: 50px;*/
+/*}*/
+
+/*#error_password{*/
+/*  margin-left: 50px;*/
+/*  margin-top: -65px;*/
+/*}*/
+
 h1 {
   color: #DAA520;
   font-weight: bold;
   font-family: Calibri;
   margin-top: 30px;
   margin-bottom: 50px;
-  margin-left: 35px;
+  margin-left: 25px;
 }
 
 
@@ -12,7 +114,8 @@ h1 {
   margin: 50px auto auto;
 
   width: 550px;
-  height: 590px;
+  /*height: 590px;*/
+
   /*margin: 120px 200px  auto;*/
   /*margin: auto auto auto;*/
   padding: 15px 0 0;
@@ -47,9 +150,13 @@ button[disabled]{
   font-weight: bolder;
   display: block;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
-
+button:hover {
+  background-color: #DAA520;
+  color: white;
+  border: #DAA520;
+}
 a{
   color: #DAA520;
   font: Bold 22px Calibri;
@@ -74,29 +181,24 @@ input {
   margin: auto auto auto;
   padding: 10px 5px;
   border: 1px solid silver;
-  outline: 5px solid honeydew;
+  outline: 5px solid #ebebeb;
   font-size: 22px;
 }
 
 #account{
-   color: dimgrey;
-   margin-left: 80px;
-   font-weight: bolder;
-   margin-top: -70px;
-
- }
-
-
-#password{
-  margin-bottom: 30px;
+  color: dimgrey;
+  margin-left: 80px;
+  font-weight: bolder;
+  margin-top: -70px;
 
 }
+
+
 #error_email{
   margin-left: 50px;
 }
 
 #error_password{
   margin-left: 50px;
-  margin-top: -65px;
 }
 

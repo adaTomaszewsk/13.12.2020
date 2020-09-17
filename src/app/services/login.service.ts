@@ -41,39 +41,15 @@ export class LoginService {
       );
   }
 
-  // login(email: string, password: string): Observable<LoginInterface> {
-  //       return this.http.post<LoginInterface>('http://localhost:8080/api/login',
-  //         {email, password})
-  //         .pipe(map((user: User) => {
-  //           // login successful if there's a jwt token in the response
-  //           if (user && user.token) {
-  //             // store user details and jwt token in local storage to keep user logged in between page refreshes
-  //             localStorage.setItem('currentUser', JSON.stringify(user));
-  //             this.currentUserSubject.next({
-  //               userRoles: user.userRoles,
-  //               token: user.token,
-  //               name: user.name,
-  //               surname: user.surname,
-  //               email: user.email,
-  //               id: user.id,
-  //               password: user.password,
-  //               tokenType: user.tokenType
-  //             });
-  //           }
-  //           return user;
-  //         }));
-  //     }
-
-
   logout(): void {
-    this.http.post<any>('/api/logout', {}).subscribe(() => {
-        this.removeCurrentUserFromStorageAndRedirect();
-      },
-      () => {
-        this.removeCurrentUserFromStorageAndRedirect();
-      }
-    );
-  }
+          this.removeCurrentUserFromStorageAndRedirect();
+    }
+
+  // logout() {
+  //   // remove user from local storage to log user out
+  //   localStorage.removeItem('currentUser');
+  //   this.currentUserSubject.next(null);
+  // }
 
   getLoggedUser(): User {
     return this.getUserFromStorage();
@@ -120,17 +96,19 @@ export class LoginService {
   //       {email, password})
   //       .pipe(map((user: LoginInterface) => {
   //         // login successful if there's a jwt token in the response
-  //         if (user && user.token) {
-  //           // store user details and jwt token in local storage to keep user logged in between page refreshes
-  //           localStorage.setItem('currentUser', JSON.stringify(user));
-  //           this.currentUserSubject.next({
-  //             name: user.name, surname: user.surname, tokenType: user.tokenType, userRoles: user.userRoles,
-  //             email,
-  //             id: user.id,
-  //             password,
-  //             token: user.token,
-  //
-  //           });
+  //         if (user) {
+  //           if (user.token) {
+  //             // store user details and jwt token in local storage to keep user logged in between page refreshes
+  //             localStorage.setItem('currentUser', JSON.stringify(user));
+  //             this.currentUserSubject.next({
+  //               userRoles: user.userRoles as unknown as Role,
+  //               tokenType: user.tokenType,
+  //               email,
+  //               id: user.id,
+  //               password,
+  //               token: user.token
+  //             });
+  //           }
   //         }
   //         return user;
   //       }));

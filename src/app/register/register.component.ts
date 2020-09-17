@@ -47,20 +47,20 @@ export class RegisterComponent implements OnInit {
   save() {
     this.loading = true;
 
-    this.customerService.register(this.customer)
-      .pipe(first())
-      .subscribe(
-        data => {
-          console.log(data);
-          this.alertService.success(data, true);
-          this.router.navigate(['/logowanie']);
-        },
-        (httpErrorResponse: HttpErrorResponse) => {
-          this.alertService.error(httpErrorResponse.error);
-          this.loading = false;
-        });
-    this.customer = new Customer();
-    this.gotoList();
+    // this.customerService.register(this.customer)
+    //   .pipe(first())
+    //   .subscribe(
+    //     data => {
+    //       console.log(data);
+    //       this.alertService.success(data, true);
+    //       this.router.navigate(['/logowanie']);
+    //     },
+    //     (httpErrorResponse: HttpErrorResponse) => {
+    //       this.alertService.error(httpErrorResponse.error);
+    //       this.loading = false;
+    //     });
+    // this.customer = new Customer();
+    // this.gotoList();
   }
 
 

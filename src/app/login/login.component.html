@@ -1,8 +1,3 @@
-<!--<div class="jumbotron text-center">
-  <h1>ConsultMed</h1>
-  <p>System stworzony z myślą o pacjentach</p>
-</div>
--->
 
 <div class="row">
   <div class="col-12">
@@ -12,7 +7,7 @@
 
     <div class="card" id="panel">
       <div class="card-body">
-        <h1>Zaloguj się COOKCar</h1>
+        <h1>Zaloguj się do COOKCar</h1>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="email">Adres e-mail</label>
@@ -27,6 +22,11 @@
             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
               <div *ngIf="f.password.errors.required" id="error_password">Hasło jest wymagane</div>
             </div>
+          </div>
+          <a class="nav-link" ></a>
+
+          <!--          <a routerLink="/haslo/resetuj" class="nav-link" >Nie pamiętam hasła</a>-->
+          <div>
             <button [disabled]="loading" class="btn btn-primary">
               <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
               ZALOGUJ SIĘ
@@ -43,9 +43,3 @@
   </div>
 </div>
 
-<!--<hr>-->
-<!--<form [formGroup]="testForm">-->
-<!--  <select [formControlName]="'test'">-->
-<!--    <option *ngFor="let item of select" [value]="item.id">{{item.value}}</option>-->
-<!--  </select>-->
-<!--</form>-->

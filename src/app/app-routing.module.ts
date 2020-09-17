@@ -51,7 +51,6 @@ const appRoutes: Routes = [
 
   {path: 'logowanie', component: LoginComponent},
   {path: 'rejestracja', component: RegisterComponent},
-  {path: 'zamowienie', component: OrderComponent},
   {path: '**', redirectTo: 'logowanie'},
 
 

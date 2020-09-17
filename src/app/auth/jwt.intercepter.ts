@@ -10,36 +10,36 @@ import {User} from '../models';
 export class JwtInterceptor implements HttpInterceptor {
   constructor(private authenticationService: LoginService) { }
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const currentUser: User = this.authenticationService.currentUserValue;
-    if (currentUser) {
-      const authRequest = request.clone({
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: currentUser.tokenType + ' ' + currentUser.token
-        })
-      });
-      return next.handle(authRequest);
-    } else {
-      return next.handle(request);
-    }
-  }
-
-}
-
 //   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-//     // add auth header with jwt if user is logged in and request is to api url
-//     const currentUser = this.authenticationService.currentUserValue;
-//     const isLoggedIn = currentUser && currentUser.token;
-//     const isApiUrl = request.url.startsWith(environment.apiUrl);
-//     if (isLoggedIn && isApiUrl) {
-//       request = request.clone({
-//         setHeaders: {
-//           Authorization: `Bearer ${currentUser.token}`
-//         }
+//     const currentUser: User = this.authenticationService.currentUserValue;
+//     if (currentUser) {
+//       const authRequest = request.clone({
+//         headers: new HttpHeaders({
+//           'Content-Type': 'application/json',
+//           Authorization: currentUser.tokenType + ' ' + currentUser.token
+//         })
 //       });
+//       return next.handle(authRequest);
+//     } else {
+//       return next.handle(request);
 //     }
-//
-//     return next.handle(request);
 //   }
+//
 // }
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // add auth header with jwt if user is logged in and request is to api url
+    const currentUser = this.authenticationService.currentUserValue;
+    const isLoggedIn = currentUser && currentUser.token;
+    const isApiUrl = request.url.startsWith(environment.apiUrl);
+    if (isLoggedIn && isApiUrl) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${currentUser.token}`
+        }
+      });
+    }
+
+    return next.handle(request);
+  }
+}
