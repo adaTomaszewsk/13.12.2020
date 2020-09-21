@@ -1,0 +1,32 @@
+#panel {
+  width: 850px;
+  margin: auto auto auto;
+}
+button {
+  margin-top: 30px;
+  width: 200px;
+  height: 60px;
+  background-color: white;
+  color: dimgrey;
+  border: 2px solid dimgrey;
+  font-weight: bolder;
+  display: block;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+label {
+  display: block;
+  width: 280px;
+  padding: 8px 5px;
+  color: dimgrey;
+  font: bold 22px Calibri;
+
+}
+
+h2{
+  color: #2855BD;
+  font-weight: bold;
+  font-family: Calibri;
+  margin-top: 50px;
+}

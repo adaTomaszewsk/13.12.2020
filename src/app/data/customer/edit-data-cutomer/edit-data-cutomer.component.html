@@ -1,0 +1,23 @@
+<div id="panel" class="col-md-6 offset-md-3 mt-5">
+  <h2>Edycja danych</h2>
+  <hr>
+  <div style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Adres e-mail:</label>
+        <input type="text" id="email" required [(ngModel)]="customer.email" class="form-control col-xs-12" name="email"/>
+      </div>
+      <div class="form-group">
+        <label for="password">Hasło:</label>
+        <input  type="text" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required [(ngModel)]="customer.password" class="form-control col-xs-12" name="password"/>
+        <small id="passwordMin" class="form-text text-muted">Hasło musi składać się przynajmniej z 1 czyfry i jednej dużej oraz małej litery oraz min. 8 znaków</small>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Numer telefonu:</label>
+        <input pattern="[0-9]{9}" type="text" id="phoneNumber" required [(ngModel)]="customer.phoneNumber" class="form-control col-xs-12" name="phoneNumber"/>
+        <!--        <small id="numberMin" class="form-text text-muted">Numer telefonu w.</small>-->
+      </div>
+      <button type="submit" class="btn btn-primary">Edytuj dane</button>
+    </form>
+  </div>
+</div>
