@@ -16,13 +16,15 @@ import { BasketComponent } from './basket/basket.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {OrderComponent} from './order/order.component';
-import { EditDataComponent } from './edit-data/edit-data.component';
-import { DataComponent } from './data/data.component';
 import {AlertsComponent} from './alerts/alerts.component';
 import {HomeComponent} from './home';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import {HttpXsrfInterceptor} from './auth/HttpXsrfInterceptor';
 import {JwtInterceptor} from './auth';
+import {DataCutomerComponent} from './data/customer/data-cutomer/data-cutomer.component';
+import {DataSupplierComponent} from './data/supplier/data-supplier/data-supplier.component';
+import {EditDataCutomerComponent} from './data/customer/edit-data-cutomer/edit-data-cutomer.component';
+import {EditDataSupplierComponent} from './data/supplier/edit-data-supplier/edit-data-supplier.component';
 
 @NgModule({
     declarations: [
@@ -38,8 +40,10 @@ import {JwtInterceptor} from './auth';
         LoginComponent,
         RegisterComponent,
         OrderComponent,
-        EditDataComponent,
-        DataComponent,
+        DataCutomerComponent,
+        DataSupplierComponent,
+        EditDataCutomerComponent,
+        EditDataSupplierComponent,
         AlertsComponent,
     ],
   imports: [

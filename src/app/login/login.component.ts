@@ -16,13 +16,17 @@ import {Role} from '../models/role';
 })
 export class LoginComponent implements OnInit{
 
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  error = '';
+  returnUrl: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: LoginService,
-    private alertService: AlertService
-
+    private authenticationService: LoginService
 ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
@@ -33,14 +37,6 @@ export class LoginComponent implements OnInit{
     return this.loginForm.controls;
   }
 
-  loginForm: FormGroup;
-  loading = false;
-  submitted = false;
-  error = '';
-  returnUrl: string;
-
-  // convenience getter for easy access to form fields
-
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
@@ -49,11 +45,8 @@ export class LoginComponent implements OnInit{
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
-
   onSubmit() {
     this.submitted = true;
-    this.alertService.clear();
-
     if (this.loginForm.invalid) {
       return;
     }
@@ -66,8 +59,9 @@ export class LoginComponent implements OnInit{
           this.router.navigate([`/klient`]);
         },
         error => {
-          this.alertService.error(error);
-          this.loading = false;
+          this.error = error;
+          this.submitted = false;
+          // this.loading = false;
         });
   //       (user: LoginInterface) => {
   //         this.submitted = false;
