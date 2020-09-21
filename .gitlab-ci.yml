@@ -2,7 +2,7 @@ stages:
   - build
 build:
   stage: build
-  image: node:8.12.3
+  image: node:12-alpine
   script:
     - npm install
     - npm run build
