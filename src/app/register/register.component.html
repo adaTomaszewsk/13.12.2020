@@ -60,6 +60,8 @@
             id="number" class="form-control"
             ngModel
             name="number"
+            [(ngModel)]="customer.phone_number"
+
             pattern="[0-9]{9}"
             placeholder="Numer telefonu"
           />

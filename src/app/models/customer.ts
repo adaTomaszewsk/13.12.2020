@@ -4,7 +4,7 @@ export interface CustomerInterface {
   surname: string;
   email: string;
   password: string;
-  phoneNumber: string;
+  phone_number: string;
 
 }
 
@@ -13,6 +13,6 @@ export class Customer implements CustomerInterface {
   surname: string;
   email: string;
   password: string;
-  phoneNumber: string;
   id_customer: number;
+  phone_number: string;
 }
