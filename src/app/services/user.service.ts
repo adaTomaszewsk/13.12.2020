@@ -75,7 +75,9 @@ export class UserService {
   // }
 
   register(customer: CustomerInterface) {
-    return this.http.post(`http://localhost:8080/customers`, customer);
+    return this.http.post(`http://localhost:8080/customers`, customer, {
+          responseType: 'text' as 'json'
+        });
   }
 
 
