@@ -1,4 +1,4 @@
-image: jangrewe/gitlab-ci-android
+# image: 
 stages:
   - build
 before_script:
