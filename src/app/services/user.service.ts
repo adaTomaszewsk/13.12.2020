@@ -23,13 +23,13 @@ export class UserService {
   //
   getCustomer(id: number): Observable<any> {
     const userToken = this.sessionService.get('currentUser').token;
-    const userId = this.sessionService.get('currentUser').userId;
+    const userId = this.sessionService.get('currentUser').id;
     console.log('token' + this.sessionService.get('currentUser'));
 
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: 'Bearer:' + userToken
+        Authorization: 'Bearer ' + userToken
       })
     };
     return this.http.get(`http://localhost:8080/customers` + '/' + userId, httpOptions);

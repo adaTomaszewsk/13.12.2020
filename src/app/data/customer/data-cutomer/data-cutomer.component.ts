@@ -23,12 +23,12 @@ export class DataCutomerComponent implements OnInit {
 
   ngOnInit() {
     const currentUser = this.sessionService.get('currentUser');
-
-    this.id = currentUser.userId;
+    console.log(currentUser);
+    this.id = currentUser.id;
 
     this.customerService.getCustomer(this.id)
       .subscribe(data => {
-        console.log('dane:' + data);
+
         this.customer = data;
       }, error => console.log(error));
   }

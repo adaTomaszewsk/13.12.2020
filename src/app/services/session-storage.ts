@@ -14,24 +14,24 @@ export class SessionStorageService {
   }
 
   set(key: string, value: any) {
-    key = this.hash(key);
     value = JSON.stringify(value);
     value = this.encryptData(value);
     sessionStorage.setItem(key, value);
   }
 
   get(key: string): any {
-    key = this.hash(key);
     let value = sessionStorage.getItem(key);
     if (!value) {
-      return value;
+      return null;
     }
     value = this.decryptData(value);
-    return JSON.parse(value);
+    console.log('sessionStorage (before parse): ' + value);
+    const result = JSON.parse(value);
+    console.log(result);
+    return result;
   }
 
   remove(key: string) {
-    key = this.decryptData(key);
     sessionStorage.removeItem(key);
   }
 
