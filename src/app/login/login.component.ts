@@ -82,7 +82,6 @@ export class LoginComponent implements OnInit{
   }
   isUserInRole(role: string, roles: Array<string>): boolean {
     console.log(roles);
-    // @ts-ignore
     for (const userRole of roles) {
       console.log(userRole);
       if (role === userRole) {
