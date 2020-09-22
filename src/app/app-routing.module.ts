@@ -19,7 +19,7 @@ import {EditDataSupplierComponent} from './data/supplier/edit-data-supplier/edit
 
 const appRoutes: Routes = [
   // {path: '', component: HomeComponent},
-  // {path: '', pathMatch: 'full', redirectTo: 'logowamie'},
+  {path: '', pathMatch: 'full', redirectTo: 'logowamie'},
 
   {
     path: 'klient', component: CustomerComponent, canActivate: [AuthGuard], data: {roles: [Role.CUSTOMER]},

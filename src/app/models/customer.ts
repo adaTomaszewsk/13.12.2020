@@ -1,5 +1,5 @@
 export interface CustomerInterface {
-  idCustomer: number;
+  id: number;
   name: string;
   surname: string;
   email: string;
@@ -13,6 +13,6 @@ export class Customer implements CustomerInterface {
   surname: string;
   email: string;
   password: string;
-  idCustomer: number;
+  id: number;
   phoneNumber: string;
 }

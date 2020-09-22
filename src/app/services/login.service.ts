@@ -34,7 +34,9 @@ export class LoginService {
     return this.http.post<any>('http://localhost:8080/api/login', {email, password})
       .pipe(
         map(userData => {
-          this.storageService.set(this.LOGGED_USER, userData);
+          // localStorage.setItem('currentUser', userData);
+          console.log(userData);
+          this.storageService.set('currentUser', userData);
           this.currentUserSubject.next(userData);
           return userData;
         })

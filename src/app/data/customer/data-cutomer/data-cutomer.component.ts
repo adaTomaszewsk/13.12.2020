@@ -3,6 +3,7 @@ import {Customer} from '../../../models/customer';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../services/user.service';
 import { LoginService } from 'src/app/services/login.service';
+import {SessionStorageService} from '../../../services/session-storage';
 
 @Component({
   selector: 'app-data-cutomer',
@@ -11,25 +12,28 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class DataCutomerComponent implements OnInit {
 
-  idCustomer: number;
+  id: number;
   customer: Customer;
 
   constructor(private route: ActivatedRoute, private router: Router,
               private customerService: UserService,
-              private loginService: LoginService) { }
+              private loginService: LoginService,
+              private sessionService: SessionStorageService) { }
 
 
   ngOnInit() {
-    this.customer = new Customer();
-    this.idCustomer = JSON.parse(localStorage.getItem('currentUser')).userId;
-    this.customerService.getCustomer(this.idCustomer)
+    const currentUser = this.sessionService.get('currentUser');
+
+    this.id = currentUser.userId;
+
+    this.customerService.getCustomer(this.id)
       .subscribe(data => {
-        console.log(data);
+        console.log('dane:' + data);
         this.customer = data;
       }, error => console.log(error));
   }
 
-  deleteCustomer(idCustomer: number) {
+  deleteCustomer(id: number) {
     this.customerService.deleteCustomer()
       .subscribe(
         data => {

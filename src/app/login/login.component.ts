@@ -3,7 +3,6 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
 import {LoginService} from '../services/login.service';
-import {AlertService} from '../services/alert.service';
 import {LoginInterface} from './login.interface';
 import {Role} from '../models/role';
 
@@ -17,6 +16,7 @@ import {Role} from '../models/role';
 export class LoginComponent implements OnInit{
 
   loginForm: FormGroup;
+  testForm: FormGroup;
   loading = false;
   submitted = false;
   error = '';
@@ -33,20 +33,31 @@ export class LoginComponent implements OnInit{
       this.router.navigate(['/']);
     }
   }
-  get f() {
-    return this.loginForm.controls;
-  }
+
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    this.testForm = new FormGroup({
+      test: new FormControl(null)
+    });
+
+    this.testForm.get('test').valueChanges.subscribe(res => console.log(res));
+
+    // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+  }
+
+  get f() {
+    return this.loginForm.controls;
   }
 
   onSubmit() {
     this.submitted = true;
+    // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
@@ -55,31 +66,55 @@ export class LoginComponent implements OnInit{
     this.authenticationService.login(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe(
+        // () => {
+        //   this.submitted = false;
+        //   this.loading = false;
+        //   if (isSupplier === true) {
+        //     this.router.navigate(['dostawca']);
+        //   } else if (isSupplier = false) {
+        //     this.router.navigate(['klient']);
+        //   } else {
+        //     this.router.navigate(['']);
+        //   }
+        //   },
+        //   error => {
+        //   this.error = error;
+        //   this.submitted = false;
+        //   this.loading = false;
+        // });
         () => {
+
           this.router.navigate([`/klient`]);
         },
         error => {
           this.error = error;
           this.submitted = false;
-          // this.loading = false;
+          this.loading = false;
         });
-  //       (user: LoginInterface) => {
-  //         this.submitted = false;
-  //         this.loading = false;
-  //         if (user.userRoles === Role.SUPPLIER) {
-  //           this.router.navigate(['dostawca']);
-  //         } else if (user.userRoles === Role.CUSTOMER) {
-  //           this.router.navigate(['klient']);
-  //         } else {
-  //           this.router.navigate(['']);
-  //         }
-  //       },
-  //       error => {
-  //         this.error = error;
-  //         this.submitted = false;
-  //         this.loading = false;
-  //       });
+        // (user: LoginInterface) => {
+        //   this.submitted = false;
+        //   this.loading = false;
+        //   if (user.userRoles === Role.SUPPLIER) {
+        //     this.router.navigate(['dostawca']);
+        //   } else if (user.userRoles === Role.CUSTOMER) {
+        //     this.router.navigate(['klient']);
+        //   } else {
+        //     this.router.navigate(['']);
+        //   }
+        // },
+        // error => {
+        //   this.error = error;
+        //   this.submitted = false;
+        //   this.loading = false;
+        // });
   }
+
+   // isSupplier(user: LoginInterface): boolean {
+   //    return true;
+   //  }
+
+
+
 }
 
 
