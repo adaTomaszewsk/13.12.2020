@@ -23,7 +23,6 @@ export class DataCutomerComponent implements OnInit {
 
   ngOnInit() {
     const currentUser = this.sessionService.get('currentUser');
-    console.log(currentUser);
     this.id = currentUser.id;
 
     this.customerService.getCustomer(this.id)
@@ -37,7 +36,6 @@ export class DataCutomerComponent implements OnInit {
     this.customerService.deleteCustomer()
       .subscribe(
         data => {
-          console.log(data);
           this.logout();
         },
         error => console.log(error));

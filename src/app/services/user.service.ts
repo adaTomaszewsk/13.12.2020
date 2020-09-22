@@ -38,29 +38,26 @@ export class UserService {
   //
   // tslint:disable-next-line:ban-types
   updateCustomer(customer: Object, id: number): Observable<Object> {
-    const userToken = JSON.parse(localStorage.getItem('currentUser')).token;
-    const userId = JSON.parse(localStorage.getItem('currentUser')).userId;
-
-    console.log('token' + localStorage.getItem('currentUser'));
-
+    const userToken = this.sessionService.get('currentUser').token;
+    const userId = this.sessionService.get('currentUser').id;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: 'Bearer:' + userToken
+        Authorization: 'Bearer ' + userToken
       })
     };
     return this.http.put(`${this.baseUrl}` + '/' + +userId, customer, httpOptions);
   }
 
   deleteCustomer(): Observable<any> {
-    const userToken = JSON.parse(localStorage.getItem('currentUser')).token;
-    const userId = JSON.parse(localStorage.getItem('currentUser')).userId;
+    const userToken = this.sessionService.get('currentUser').token;
+    const userId = this.sessionService.get('currentUser').id;
     console.log('token' + localStorage.getItem('currentUser'));
 
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: 'Bearer:' + userToken
+        Authorization: 'Bearer ' + userToken
       })
     };
 
