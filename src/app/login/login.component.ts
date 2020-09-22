@@ -66,54 +66,31 @@ export class LoginComponent implements OnInit{
     this.authenticationService.login(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-        // () => {
-        //   this.submitted = false;
-        //   this.loading = false;
-        //   if (isSupplier === true) {
-        //     this.router.navigate(['dostawca']);
-        //   } else if (isSupplier = false) {
-        //     this.router.navigate(['klient']);
-        //   } else {
-        //     this.router.navigate(['']);
-        //   }
-        //   },
-        //   error => {
-        //   this.error = error;
-        //   this.submitted = false;
-        //   this.loading = false;
-        // });
-        () => {
-
-          this.router.navigate([`/klient`]);
+        next => {
+          if (this.isUserInRole('SUPPLIER', next.userRoles)) {
+            this.router.navigate([`/dostawca`]);
+          }
+          if (this.isUserInRole('CUSTOMER', next.userRoles)) {
+            this.router.navigate([`/klient`]);
+          }
         },
         error => {
           this.error = error;
           this.submitted = false;
           this.loading = false;
         });
-        // (user: LoginInterface) => {
-        //   this.submitted = false;
-        //   this.loading = false;
-        //   if (user.userRoles === Role.SUPPLIER) {
-        //     this.router.navigate(['dostawca']);
-        //   } else if (user.userRoles === Role.CUSTOMER) {
-        //     this.router.navigate(['klient']);
-        //   } else {
-        //     this.router.navigate(['']);
-        //   }
-        // },
-        // error => {
-        //   this.error = error;
-        //   this.submitted = false;
-        //   this.loading = false;
-        // });
   }
-
-   // isSupplier(user: LoginInterface): boolean {
-   //    return true;
-   //  }
-
-
+  isUserInRole(role: string, roles: Array<string>): boolean {
+    console.log(roles);
+    // @ts-ignore
+    for (let userRole of roles) {
+      console.log(userRole);
+      if (role === userRole) {
+        return true;
+      }
+    }
+    return false;
+  }
 
 }
 
