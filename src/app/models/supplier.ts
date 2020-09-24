@@ -1,5 +1,5 @@
 export interface SupplierInterface {
-  idCupplier: number;
+  id: number;
   name: string;
   surname: string;
   email: string;
@@ -11,5 +11,5 @@ export class Supplier implements SupplierInterface {
   surname: string;
   email: string;
   password: string;
-  idCupplier: number;
+  id: number;
 }

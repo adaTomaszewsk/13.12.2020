@@ -3,41 +3,21 @@
     <div id="panel">
       <h3>Mój profil</h3>
       <hr>
-<!--      <div *ngIf="doctor && doctor.institution">-->
-<!--        <div>-->
-<!--          <label><b>Imię: </b></label> {{doctor.name}}-->
-<!--        </div>-->
-<!--        <div>-->
-<!--          <label><b>Nazwisko: </b></label> {{doctor.surname}}-->
-<!--        </div>-->
-<!--        <div>-->
-<!--          <label><b>E-mail: </b></label> {{doctor.email}}-->
-<!--        </div>-->
-<!--        <div>-->
-<!--          <label><b>Numer telefonu: </b></label> {{doctor.phoneNumber}}-->
-<!--        </div>-->
-        <!--        <div>-->
-        <!--          <label><b>Specjalizacja: </b></label>-->
-        <!--          <div *ngFor="let institute_specialization of doctor.institution.institute_specializations">-->
-
-        <!--            <h3>-->
-        <!--              <a [title]="institute_specialization.name">-->
-        <!--                {{ institute_specialization.name }}-->
-        <!--              </a>-->
-        <!--            </h3>-->
-
-        <!--          </div>-->
-        <!--        <div *ngIf="doctor && doctor.institution && doctor.institution.description">-->
-
+      <div *ngIf="supplier">
+        <div>
+          <label><b>Imię: </b></label> {{supplier.name}}
+        </div>
+        <div>
+          <label><b>Nazwisko: </b></label> {{supplier.surname}}
+        </div>
+        <div>
+          <label><b>E-mail: </b></label> {{supplier.email}}
+        </div>
         <div class="btn-group">
           <button class="btn btn-primary" routerLink="/dostawca/edycja_danych_dostawcy" ><i class="fas fa-cog"></i>   Edytuj dane</button>
-          <!--          <button id="k" class="btn btn-primary" (click)="deleteDoctor(id_Doctor)" ><i class="fas fa-trash"></i>   Usuń konto </button>-->
-          <!--          <button class="btn btn-primary" type="submit"><i class="fas fa-phone"></i>   Dodaj numer telefonu </button>-->
-          <!--          <button class="btn btn-primary" type="submit"><i class="fas fa-key"></i>   Zmień hasło </button>-->
-          <!--          <button class="btn btn-primary" type="submit"><i class="fas fa-at"></i>   Zmień e-mail </button>-->
         </div>
       </div>
     </div>
   </div>
-<!--</div>-->
+</div>
 

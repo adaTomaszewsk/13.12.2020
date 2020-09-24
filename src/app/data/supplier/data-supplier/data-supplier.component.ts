@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Supplier} from '../../../models/supplier';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../../services/user.service';
+import {LoginService} from '../../../services/login.service';
+import {SessionStorageService} from '../../../services/session-storage';
 
 @Component({
   selector: 'app-data-supplier',
@@ -6,24 +11,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-supplier.component.css']
 })
 export class DataSupplierComponent implements OnInit {
-  ngOnInit(): void {
+
+  id: number;
+  supplier: Supplier;
+
+  constructor(private route: ActivatedRoute, private router: Router,
+              private supplierService: UserService,
+              private loginService: LoginService,
+              private sessionService: SessionStorageService) { }
+
+
+  ngOnInit() {
+    const currentUser = this.sessionService.get('currentUser');
+    this.id = currentUser.id;
+
+    this.supplierService.getSupplier(this.id)
+      .subscribe(data => {
+
+        this.supplier = data;
+      }, error => console.log(error));
   }
-  //
-  // id_Doctor: number;
-  // doctor: Doctor;
-  //
-  // constructor(private route: ActivatedRoute,private router: Router,
-  //             private doctorService: DoctorService,
-  //             private loginService: LoginService) { }
-  //
-  // ngOnInit() {
-  //   this.doctor = new Doctor();
-  //   this.id_Doctor = JSON.parse(localStorage.getItem('currentUser')).userId;
-  //   this.doctorService.getDoctor(this.id_Doctor)
-  //     .subscribe(data => {
-  //       console.log(data);
-  //       this.doctor = data;
-  //     }, error => console.log(error));
-  // }
+
+  logout(){
+    this.loginService.logout();
+    this.router.navigate(['/logowanie']);
+  }
 
 }

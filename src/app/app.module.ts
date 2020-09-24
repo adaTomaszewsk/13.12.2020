@@ -17,7 +17,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {OrderComponent} from './order/order.component';
 import {AlertsComponent} from './alerts/alerts.component';
-import {HomeComponent} from './home';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import {HttpXsrfInterceptor} from './auth/HttpXsrfInterceptor';
 import {JwtInterceptor} from './auth';
@@ -36,7 +35,6 @@ import {EditDataSupplierComponent} from './data/supplier/edit-data-supplier/edit
         CustomerOrdersComponent,
         UndeliveredOrdersComponent,
         BasketComponent,
-        HomeComponent,
         LoginComponent,
         RegisterComponent,
         OrderComponent,

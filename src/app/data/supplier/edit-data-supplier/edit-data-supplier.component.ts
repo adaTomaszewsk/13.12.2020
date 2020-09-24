@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../../services/user.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Supplier} from '../../../models/supplier';
+import {SessionStorageService} from '../../../services/session-storage';
 
 @Component({
   selector: 'app-edit-data-supplier',
@@ -6,42 +10,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-data-supplier.component.css']
 })
 export class EditDataSupplierComponent implements OnInit {
-  ngOnInit(): void {
+  supplier: Supplier;
+  id: number;
+
+
+  constructor(private route: ActivatedRoute, private router: Router,
+              private supplierService: UserService,
+              private sessionService: SessionStorageService) { }
+
+
+  ngOnInit() {
+    const currentUser = this.sessionService.get('currentUser');
+    this.id = currentUser.id;
+
+    this.supplierService.getSupplier(this.id)
+      .subscribe(data => {
+
+        this.supplier = data;
+      }, error => console.log(error));
   }
 
-  // doctor: Doctor;
-  // id_Doctor: number;
-  //
-  //
-  // constructor(private route: ActivatedRoute,private router: Router,
-  //             private doctorService: DoctorService) { }
-  //
-  // ngOnInit() {
-  //   this.doctor = new Doctor();
-  //
-  //   this.id_Doctor = JSON.parse(localStorage.getItem('currentUser')).userId;
-  //
-  //   this.doctorService.getDoctor(this.id_Doctor)
-  //     .subscribe(data => {
-  //       console.log(data);
-  //       this.doctor = data;
-  //     }, error => console.log(error));
-  //
-  //
-  // }
-  // updateDoctor() {
-  //   this.doctorService.updateDoctor( this.doctor, this.id_Doctor)
-  //     .subscribe(data => {
-  //       this.gotoList();
-  //     }, error => console.log(error));
-  //
-  // }
-  //
-  // onSubmit() {
-  //   this.updateDoctor();
-  // }
-  //
-  // gotoList() {
-  //   this.router.navigate(['/lekarz/dane_osobowe_lekarza']);
-  // }
+  updateSupplier() {
+    this.supplierService.updateSupplier(this.supplier, this.id)
+      .subscribe(data => {
+        this.gotoList();
+      }, error => console.log(error));
+  }
+
+  onSubmit() {
+    this.updateSupplier();
+  }
+
+  gotoList() {
+    this.router.navigate(['/dostawca/dane_osobowe_dostawcy']);
+  }
 }

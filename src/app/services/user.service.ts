@@ -69,4 +69,32 @@ export class UserService {
           responseType: 'text' as 'json'
         });
   }
+
+  getSupplier(id: number): Observable<any> {
+    const userToken = this.sessionService.get('currentUser').token;
+    const userId = this.sessionService.get('currentUser').id;
+    console.log('token' + this.sessionService.get('currentUser'));
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + userToken
+      })
+    };
+    return this.http.get(`http://localhost:8080/suppliers` + '/' + userId, httpOptions);
+  }
+
+  // tslint:disable-next-line:ban-types
+  updateSupplier(supplier: Object, id: number): Observable<Object> {
+    const userToken = this.sessionService.get('currentUser').token;
+    const userId = this.sessionService.get('currentUser').id;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + userToken
+      })
+    };
+    return this.http.put(`http://localhost:8080/suppliers` + '/' + +userId, supplier, httpOptions);
+  }
+
 }
