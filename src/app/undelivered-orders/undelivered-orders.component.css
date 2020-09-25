@@ -9,11 +9,11 @@
 
 #k2{
   background-color: white;
-  color: darkred;
-  border: 2px solid darkred;
+  color: dimgrey;
+  border: 2px solid dimgray;
   font: bold 15px Calibri;
   margin-top: 5px;
-  width: 80px;
+  width: 200px;
   margin-left: 20px;
 }
 

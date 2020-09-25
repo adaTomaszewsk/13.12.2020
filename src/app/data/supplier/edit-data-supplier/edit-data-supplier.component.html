@@ -10,7 +10,7 @@
       <div class="form-group">
         <label for="password">Hasło:</label>
         <input  type="text" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required [(ngModel)]="supplier.password" class="form-control col-xs-12" name="password"/>
-        <small id="passwordMin" class="form-text text-muted">Hasło musi składać się przynajmniej z 1 czyfry i jednej dużej oraz małej litery oraz min. 8 znaków</small>
+        <small id="passwordMin" class="form-text text-muted">Hasło musi składać się przynajmniej z 1 cyfry i jednej dużej oraz małej litery oraz min. 8 znaków</small>
       </div>
       <button type="submit" class="btn btn-primary">Edytuj dane</button>
     </form>

@@ -61,7 +61,7 @@ export class UserService {
       })
     };
 
-    return this.http.delete(`${this.baseUrl}` + '/' + +userId, httpOptions);
+    return this.http.delete(`${this.baseUrl}` + '/' + userId, httpOptions);
   }
 
   register(customer: CustomerInterface) {
@@ -94,7 +94,7 @@ export class UserService {
         Authorization: 'Bearer ' + userToken
       })
     };
-    return this.http.put(`http://localhost:8080/suppliers` + '/' + +userId, supplier, httpOptions);
+    return this.http.put(`http://localhost:8080/suppliers` + '/' + userId, supplier, httpOptions);
   }
 
 }

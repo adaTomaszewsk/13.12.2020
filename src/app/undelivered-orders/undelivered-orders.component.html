@@ -6,7 +6,6 @@
   <table class="table table-hover">
     <thead>
     <tr>
-      <th>ID</th>
       <th>Data</th>
       <th>Status</th>
       <th>Akcja</th>
@@ -18,7 +17,7 @@
           <td>{{order.status}}</td>
           <td>
             <form (ngSubmit)="onSubmit()">
-              <button (click)="changeStatus(order.id_Order)" class="btn btn-primary" style="margin-left: 10px" id="k2">Realizacja</button>
+              <button (click)="changeStatus(order.id_Order)" class="btn btn-primary" style="margin-left: 10px" id="k2">Przyjmij do realizacji</button>
             </form>
           </td>
         </tr>

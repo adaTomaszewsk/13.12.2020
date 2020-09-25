@@ -11,27 +11,29 @@ import {SessionStorageService} from '../../../services/session-storage';
 })
 export class EditDataSupplierComponent implements OnInit {
   supplier: Supplier;
-  id: number;
+  idSupplier: number;
 
 
   constructor(private route: ActivatedRoute, private router: Router,
-              private supplierService: UserService,
-              private sessionService: SessionStorageService) { }
-
+              private supplierService: UserService) {
+  }
 
   ngOnInit() {
-    const currentUser = this.sessionService.get('currentUser');
-    this.id = currentUser.id;
+    this.supplier = new Supplier();
 
-    this.supplierService.getSupplier(this.id)
+    this.idSupplier = JSON.parse(localStorage.getItem('currentUser')).userId;
+
+    this.supplierService.getSupplier(this.idSupplier)
       .subscribe(data => {
-
+        console.log(data);
         this.supplier = data;
       }, error => console.log(error));
+
+
   }
 
   updateSupplier() {
-    this.supplierService.updateSupplier(this.supplier, this.id)
+    this.supplierService.updateSupplier(this.supplier, this.idSupplier)
       .subscribe(data => {
         this.gotoList();
       }, error => console.log(error));
@@ -40,7 +42,6 @@ export class EditDataSupplierComponent implements OnInit {
   onSubmit() {
     this.updateSupplier();
   }
-
   gotoList() {
     this.router.navigate(['/dostawca/dane_osobowe_dostawcy']);
   }

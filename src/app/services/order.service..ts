@@ -39,7 +39,7 @@ export class OrderService {
         Authorization: 'Bearer ' + userToken
       })
     };
-    return this.http.get(`http://localhost:8080/order/supplier` + '/' + userId, httpOptions);
+    return this.http.get(`http://localhost:8080/orders/supplier` + '/' + userId, httpOptions);
   }
 
   getUnassignedOrders(): Observable<any> {
@@ -51,7 +51,7 @@ export class OrderService {
         Authorization: 'Bearer ' + userToken
       })
     };
-    return this.http.get(`http://localhost:8080/order/unassigned`, httpOptions);
+    return this.http.get(`http://localhost:8080/orders/unassigned`, httpOptions);
   }
 
   changeStatus(id_order: number): Observable<any> {
