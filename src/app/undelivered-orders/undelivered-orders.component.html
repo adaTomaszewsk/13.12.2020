@@ -13,16 +13,15 @@
     </tr>
     </thead>
     <tbody>
-    <!--    <tr *ngFor="let form of forms | async">-->
-    <!--      <td>{{form.id_Form}}</td>-->
-    <!--      <td>{{form.adress}}</td>-->
-    <!--      <td>{{form.subject}}</td>-->
-    <!--      <td>{{form.status}}</td>-->
-    <!--      <td>-->
-    <!--        <button (click)="formDetails(form.id_Form)" class="btn btn-info" style="margin-left: 10px" id="k">Podgląd</button>-->
-    <!--        <button (click)="updateForm(form.id_Form)" class="btn btn-primary" style="margin-left: 10px" id="k2">Realizacja</button>-->
-    <!--      </td>-->
-    <!--    </tr>-->
+        <tr *ngFor="let order of orders | async">
+          <td>{{order.date}}</td>
+          <td>{{order.status}}</td>
+          <td>
+            <form (ngSubmit)="onSubmit()">
+              <button (click)="changeStatus(order.id_Order)" class="btn btn-primary" style="margin-left: 10px" id="k2">Realizacja</button>
+            </form>
+          </td>
+        </tr>
     </tbody>
   </table>
 </div>
