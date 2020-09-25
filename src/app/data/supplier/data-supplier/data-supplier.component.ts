@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../services/user.service';
 import {LoginService} from '../../../services/login.service';
 import {SessionStorageService} from '../../../services/session-storage';
+import {Customer} from '../../../models/customer';
 
 @Component({
   selector: 'app-data-supplier',

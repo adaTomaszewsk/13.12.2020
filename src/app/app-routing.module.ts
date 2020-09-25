@@ -32,8 +32,6 @@ const appRoutes: Routes = [
     ]
   },
 
-
-
   {
     path: 'dostawca', component: SupplierComponent, canActivate: [SupplierAuthGuard], data: {roles: [Role.SUPPLIER]},
     children: [
@@ -49,12 +47,6 @@ const appRoutes: Routes = [
   {path: 'rejestracja', component: RegisterComponent},
   {path: '**', redirectTo: 'logowanie'},
 
-  //
-  // {
-  //   path: '',
-  //   component: HomeComponent,
-  //   canActivate: [AuthGuard]
-  // },
 ];
 
 @NgModule({

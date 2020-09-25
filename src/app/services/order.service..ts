@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {SessionStorageService} from './session-storage';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,72 @@ export class OrderService {
 
   // private baseUrl = 'http://localhost:8080/api/v1/forms';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private sessionService: SessionStorageService) {
+  }
 
+  getCustomerOrders(id: number): Observable<any> {
+    const userToken = this.sessionService.get('currentUser').token;
+    const userId = this.sessionService.get('currentUser').id;
+    console.log('token' + this.sessionService.get('currentUser'));
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + userToken
+      })
+    };
+    return this.http.get(`http://localhost:8080/orders/customer` + '/' + userId, httpOptions);
+  }
+
+
+  getSupplierOrders(id: number): Observable<any> {
+    const userToken = this.sessionService.get('currentUser').token;
+    const userId = this.sessionService.get('currentUser').id;
+    console.log('token' + this.sessionService.get('currentUser'));
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + userToken
+      })
+    };
+    return this.http.get(`http://localhost:8080/orders/suppliers` + '/' + userId, httpOptions);
+  }
+
+  getUnassignedOrders(): Observable<any> {
+    const userToken = this.sessionService.get('currentUser').token;
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + userToken
+      })
+    };
+    return this.http.get(`http://localhost:8080/orders/unassigned`, httpOptions);
+  }
+
+  changeStatus(id_order: number): Observable<any> {
+    const userToken = this.sessionService.get('currentUser').token;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + userToken
+      })
+    };
+    return this.http.put(`http://localhost:8080/orders/status` + '/' + id_order, httpOptions);
+  }
+
+  // addOrder(order: Object, userId: number ): Observable<Object> {
+  //   const userToken = JSON.parse(localStorage.getItem('currentUser')).token;
+  //
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type':  'application/json',
+  //       'Authorization': "Bearer:"+userToken
+  //     })
+  //   };
+  //   return this.http.post<Object>(`http://localhost:8080/orders/`+"?patientId=" + userId, order, httpOptions);
+  // }
   //
   //
   // getOrdersList(): Observable<any> {
@@ -107,4 +172,6 @@ export class OrderService {
   //   console.log("id:"+userId);
   //   return this.http.get('http://localhost:8080/api/v1/forms/doctorAll', httpOptions);
   // }
+
+
 }

@@ -46,7 +46,7 @@ export class UserService {
         Authorization: 'Bearer ' + userToken
       })
     };
-    return this.http.put(`${this.baseUrl}` + '/' + +userId, customer, httpOptions);
+    return this.http.put(`${this.baseUrl}` + '/' + userId, customer, httpOptions);
   }
 
   deleteCustomer(): Observable<any> {
