@@ -12,8 +12,6 @@ h1 {
 
   width: 550px;
   height: 680px;
-  /*margin: 120px 200px  auto;*/
-  /*margin: auto auto auto;*/
   padding: 15px 0 0;
   background: #fff;
   border: 1px solid silver;
@@ -53,6 +51,7 @@ button:hover {
   color: white;
   border: #DAA520;
 }
+
 input {
   display: block;
   width: 450px;

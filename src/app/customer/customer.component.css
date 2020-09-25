@@ -11,19 +11,35 @@ a{
   margin-right: 20px;
 }
 
+#name{
+  font: 40px calibri;
+  marigin-left: 20px
+}
+
 
 #panel{
   width:1000px;
   margin: auto auto auto;
 }
 #panel2{
-  height: 50px;
+  height: 80px;
 }
 #k1{
-  font: 15px Calibri;
+  font: 18px Calibri;
   margin-top: -40px;
 }
 #k2{
-  font: 15px Calibri;
+  font: 18px Calibri;
   margin-top: -40px;
 }
+
+/*#panel3 {*/
+/*  height: 50px;*/
+/*  bottom: 0;*/
+/*  position: static;*/
+/*}*/
+/*.footer{*/
+/*  clear:both;*/
+/*  width:100%;*/
+/*  float:left;*/
+/*  display:block;}*/
