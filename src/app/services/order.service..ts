@@ -29,17 +29,16 @@ export class OrderService {
 
 
   getSupplierOrders(id: number): Observable<any> {
-    const userToken = this.sessionService.get('currentUser').token;
-    const userId = this.sessionService.get('currentUser').id;
+    const user = this.sessionService.get('currentUser');
     console.log('token' + this.sessionService.get('currentUser'));
 
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + userToken
+        Authorization: 'Bearer ' + user.token
       })
     };
-    return this.http.get(`http://localhost:8080/orders/supplier` + '/' + userId, httpOptions);
+    return this.http.get(`http://localhost:8080/orders/supplier` + '/' + user.id, httpOptions);
   }
 
   getUnassignedOrders(): Observable<any> {
@@ -55,28 +54,30 @@ export class OrderService {
   }
 
   changeStatus(id: number): Observable<any> {
-    const userToken = this.sessionService.get('currentUser').token;
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + userToken
-      })
-    };
-    return this.http.put(`http://localhost:8080/orders/status` + '/' + id, httpOptions);
-  }
-
-  // tslint:disable-next-line:ban-types
-  assignmentOrder(id_order: number, id: number ): Observable<Object> {
-    const userToken = this.sessionService.get('currentUser').token;
-    console.log('token' + this.sessionService.get('currentUser'));
+    const user = this.sessionService.get('currentUser');
+    console.log('token' + user);
 
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        Authorization: 'Bearer:'  + userToken
+        Authorization: 'Bearer:'  + user.token
       })
     };
-    return this.http.put(`http://localhost:8080/orders ` + '/' + id_order + '?idSupplier=' + id, httpOptions);
+    return this.http.put(`http://localhost:8080/orders/status/` + id, httpOptions);
+  }
+
+  // tslint:disable-next-line:ban-types
+  assignmentOrder(id: number): Observable<Object> {
+    const user = this.sessionService.get('currentUser');
+    console.log('token' + user);
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer:'  + user.token
+      })
+    };
+    return this.http.put(`http://localhost:8080/orders/` + id + '?idSupplier=' + user.id, httpOptions);
   }
 
   // addOrder(order: Object, userId: number ): Observable<Object> {

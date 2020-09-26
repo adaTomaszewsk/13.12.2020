@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import {Order} from '../models';
 import {OrderService} from '../services';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SessionStorageService} from '../services/session-storage';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-undelivered-orders',
@@ -13,9 +14,7 @@ import {SessionStorageService} from '../services/session-storage';
 export class UndeliveredOrdersComponent implements OnInit {
 
   orders: Observable<Order[]>;
-  id_order: number;
-  id: number;
-
+  private assignmentOrderSubscription: Subscription;
 
   constructor(private orderService: OrderService,
               private router: Router,
@@ -24,8 +23,6 @@ export class UndeliveredOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-    const currentUser = this.sessionService.get('currentUser');
-    this.id = currentUser.id;
     // this.order = new Order();
     //
     // this.id_order = this.route.snapshot.params['id_order'];
@@ -35,9 +32,10 @@ export class UndeliveredOrdersComponent implements OnInit {
     this.orders = this.orderService.getUnassignedOrders();
   }
 
-  assignmentOrder(id_order: number){
-    this.orderService.assignmentOrder(this.id_order, this.id)
-      .subscribe(data => {
+  assignmentOrder(orderId: number){
+      this.orderService.assignmentOrder(orderId)
+      .pipe(take(1))
+      .subscribe(() => {
         this.gotoList();
       }, error => console.log(error));
   }
@@ -47,11 +45,15 @@ export class UndeliveredOrdersComponent implements OnInit {
   // }
 
   onSubmit() {
-    this.assignmentOrder(this.id_order);
   }
 
   gotoList() {
     this.router.navigate(['/dostawca/realizowane_zamowienia']);
   }
+
+  // //UNSUBUJ!!!!
+  // ngOnDestroy() {
+  //   this.assignmentOrderSubscription.unsubscribe();
+  // }
 
 }

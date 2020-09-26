@@ -4,6 +4,7 @@ import {Order} from '../models';
 import {OrderService} from '../services';
 import {Router} from '@angular/router';
 import {SessionStorageService} from '../services/session-storage';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-supplier-orders',
@@ -12,10 +13,9 @@ import {SessionStorageService} from '../services/session-storage';
 })
 export class SupplierOrdersComponent implements OnInit {
 
-  id: number;
   orders: Observable<Order[]>;
-  id_order: number;
-  isButtonVisible: boolean;
+  orderId: number;
+  id: number;
 
   constructor(private orderService: OrderService,
               private router: Router,
@@ -23,23 +23,24 @@ export class SupplierOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-    // const currentUser = this.sessionService.get('currentUser');
-    // this.id = currentUser.id;
+    const currentUser = this.sessionService.get('currentUser');
+    this.id = currentUser.id;
   }
 
   reloadData() {
     this.orders = this.orderService.getSupplierOrders(this.id);
   }
 
-  changeStatus(){
-    this.orderService.changeStatus(this.id_order)
-      .subscribe(data => {
+  changeStatus(orderId: number){
+    this.orderService.changeStatus(orderId)
+      .pipe(take(1))
+      .subscribe(() => {
         this.gotoList();
       }, error => console.log(error));
   }
 
   onSubmit() {
-    this.changeStatus();
+    // this.changeStatus();
   }
 
   gotoList() {
