@@ -29,4 +29,5 @@ export class CustomerOrdersComponent implements OnInit {
     this.orders = this.orderService.getCustomerOrders(this.id);
   }
 
+
 }

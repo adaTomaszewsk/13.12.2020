@@ -30,7 +30,7 @@ export class SupplierOrdersComponent implements OnInit {
     this.orders = this.orderService.getSupplierOrders(this.id);
   }
 
-  changeStatus(id_order: number){
+  changeStatus(){
     this.orderService.changeStatus(this.id_order)
       .subscribe(data => {
         this.gotoList();
@@ -38,7 +38,7 @@ export class SupplierOrdersComponent implements OnInit {
   }
 
   onSubmit() {
-    this.changeStatus(this.id_order);
+    this.changeStatus();
   }
 
   gotoList() {

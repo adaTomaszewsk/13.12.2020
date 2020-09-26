@@ -24,7 +24,7 @@ export class OrderService {
         Authorization: 'Bearer ' + userToken
       })
     };
-    return this.http.get(`http://localhost:8080/order/customer` + '/' + userId, httpOptions);
+    return this.http.get(`http://localhost:8080/orders/customer` + '/' + userId, httpOptions);
   }
 
 
@@ -54,7 +54,7 @@ export class OrderService {
     return this.http.get(`http://localhost:8080/orders/unassigned`, httpOptions);
   }
 
-  changeStatus(id_order: number): Observable<any> {
+  changeStatus(id: number): Observable<any> {
     const userToken = this.sessionService.get('currentUser').token;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -62,7 +62,7 @@ export class OrderService {
         Authorization: 'Bearer ' + userToken
       })
     };
-    return this.http.put(`http://localhost:8080/orders/status` + '/' + id_order, httpOptions);
+    return this.http.put(`http://localhost:8080/orders/status` + '/' + id, httpOptions);
   }
 
   // addOrder(order: Object, userId: number ): Observable<Object> {

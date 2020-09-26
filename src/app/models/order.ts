@@ -2,7 +2,7 @@ import {Dish} from './dish';
 import {LoggedUser} from './loggedUser';
 
 export class Order{
-  id_Order: number;
+  id: number;
   date: string;
   status: string;
   dish: Dish[];
