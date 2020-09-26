@@ -1,10 +1,12 @@
 import {Dish} from './dish';
-import {LoggedUser} from './loggedUser';
+import {Supplier} from './supplier';
+import {Customer} from './customer';
 
 export class Order{
   id: number;
   date: string;
   status: string;
   dish: Dish[];
-  loggedUser: LoggedUser;
+  supplier: Supplier;
+  customer: Customer;
 }

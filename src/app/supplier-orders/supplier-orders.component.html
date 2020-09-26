@@ -15,7 +15,7 @@
           <td>{{order.status}}</td>
           <td>
             <form (ngSubmit)="onSubmit()">
-              <button (click)="changeStatus()" class="btn btn-primary" style="margin-left: 10px" id="k2">Dostarczone do klienta</button>
+              <button (click)="changeStatus()" class="btn btn-primary" *ngIf="order.status === 'PREPARED'" style="margin-left: 10px" id="k2">Dostarczone do klienta</button>
             </form>
           </td>
         </tr>

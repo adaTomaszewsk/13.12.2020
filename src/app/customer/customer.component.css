@@ -43,3 +43,18 @@ a{
 /*  width:100%;*/
 /*  float:left;*/
 /*  display:block;}*/
+/*footer{*/
+/*@include zero-margin(20px, 0px);*/
+/*}*/
+/*#email {*/
+/*  font: 18px Calibri;*/
+/*  color: dimgray;*/
+/*  margin-right: -20px;*/
+/*}*/
+/*#color{*/
+/*  color: dimgray;*/
+/*  margin-top: 15%;*/
+/*}*/
+/*hr{*/
+/*  width: 600px;*/
+/*}*/

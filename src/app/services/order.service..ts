@@ -65,6 +65,20 @@ export class OrderService {
     return this.http.put(`http://localhost:8080/orders/status` + '/' + id, httpOptions);
   }
 
+  // tslint:disable-next-line:ban-types
+  assignmentOrder(id_order: number, id: number ): Observable<Object> {
+    const userToken = this.sessionService.get('currentUser').token;
+    console.log('token' + this.sessionService.get('currentUser'));
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Bearer:'  + userToken
+      })
+    };
+    return this.http.put(`http://localhost:8080/orders ` + '/' + id_order + '?idSupplier=' + id, httpOptions);
+  }
+
   // addOrder(order: Object, userId: number ): Observable<Object> {
   //   const userToken = JSON.parse(localStorage.getItem('currentUser')).token;
   //

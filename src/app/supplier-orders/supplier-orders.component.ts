@@ -15,6 +15,7 @@ export class SupplierOrdersComponent implements OnInit {
   id: number;
   orders: Observable<Order[]>;
   id_order: number;
+  isButtonVisible: boolean;
 
   constructor(private orderService: OrderService,
               private router: Router,
@@ -22,8 +23,8 @@ export class SupplierOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-    const currentUser = this.sessionService.get('currentUser');
-    this.id = currentUser.id;
+    // const currentUser = this.sessionService.get('currentUser');
+    // this.id = currentUser.id;
   }
 
   reloadData() {
@@ -44,4 +45,6 @@ export class SupplierOrdersComponent implements OnInit {
   gotoList() {
     this.router.navigate(['/dostawca/realizowane_zamowienia']);
   }
+
+
 }

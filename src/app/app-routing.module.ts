@@ -18,7 +18,12 @@ import {EditDataSupplierComponent} from './data/supplier/edit-data-supplier/edit
 import {SupplierAuthGuard} from './auth/supplierAuth.guard';
 
 const appRoutes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'logowanie'},
+  // {
+  //   path: '',
+  //   children: [
+  //     {path: 'logowanie', component: LoginComponent}]},
+  // {path: '', pathMatch: 'full', redirectTo: '/logowanie'},
+
 
   {
     path: 'klient', component: CustomerComponent, canActivate: [AuthGuard], data: {roles: [Role.CUSTOMER]},
@@ -31,7 +36,6 @@ const appRoutes: Routes = [
       {path: 'edycja_danych_klienta', component: EditDataCutomerComponent, canActivate: [AuthGuard]},
     ]
   },
-
   {
     path: 'dostawca', component: SupplierComponent, canActivate: [SupplierAuthGuard], data: {roles: [Role.SUPPLIER]},
     children: [
