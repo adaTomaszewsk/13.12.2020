@@ -25,9 +25,9 @@ export class SessionStorageService {
       return null;
     }
     value = this.decryptData(value);
-    console.log('sessionStorage (before parse): ' + value);
+    // console.log('sessionStorage (before parse): ' + value);
     const result = JSON.parse(value);
-    console.log(result);
+    // console.log(result);
     return result;
   }
 

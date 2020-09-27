@@ -16,7 +16,7 @@ export class OrderService {
   getCustomerOrders(id: number): Observable<any> {
     const userToken = this.sessionService.get('currentUser').token;
     const userId = this.sessionService.get('currentUser').id;
-    console.log('token' + this.sessionService.get('currentUser'));
+    // console.log('token' + this.sessionService.get('currentUser'));
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -30,7 +30,7 @@ export class OrderService {
 
   getSupplierOrders(id: number): Observable<any> {
     const user = this.sessionService.get('currentUser');
-    console.log('token' + this.sessionService.get('currentUser'));
+    // console.log('token' + this.sessionService.get('currentUser'));
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -55,7 +55,7 @@ export class OrderService {
 
   changeStatus(id: number): Observable<any> {
     const user = this.sessionService.get('currentUser');
-    console.log('token' + user);
+    // console.log('token' + user);
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -69,7 +69,7 @@ export class OrderService {
   // tslint:disable-next-line:ban-types
   assignmentOrder(id: number): Observable<Object> {
     const user = this.sessionService.get('currentUser');
-    console.log('token' + user);
+    // console.log('token' + user);
 
     const httpOptions = {
       headers: new HttpHeaders({

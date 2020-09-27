@@ -26,9 +26,9 @@ export class SupplierAuthGuard implements CanActivate {
   }
 
   isUserInRole(role: string, roles: Array<string>): boolean {
-    console.log(roles);
+    // console.log(roles);
     for (const userRole of roles) {
-      console.log(userRole);
+      // console.log(userRole);
       if (role === userRole) {
         return true;
       }
