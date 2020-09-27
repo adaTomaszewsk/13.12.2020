@@ -12,9 +12,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let dishStorage of dishes | async">
-          <td>{{dishStorage.name}}</td>
-          <td>{{dishStorage.price}} zł</td>
+    <tr *ngFor="let item of basket">
+          <td>{{item.name}}</td>
+          <td>{{item.price}} zł</td>
 <!--          <td>-->
 <!--            <span ng-click="removeItem($index)" class="pointer glyphicon glyphicon-remove" aria-hidden="true"></span>-->
 <!--          </td>-->
@@ -28,3 +28,4 @@
   <br>
   <button class="btn btn-primary" (click)="save()"><i class="fas fa-arrow-circle-right"></i>  Zamów</button><br>
 </div>
+

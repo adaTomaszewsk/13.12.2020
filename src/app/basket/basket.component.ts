@@ -6,6 +6,7 @@ import {NgForm} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {HttpErrorResponse} from '@angular/common/http';
 import {OrderService} from '../services';
+import {BasketService} from '../services/basket.service';
 
 @Component({
   selector: 'app-basket',
@@ -14,15 +15,16 @@ import {OrderService} from '../services';
 })
 export class BasketComponent implements OnInit {
 
-  dishes: Observable<Dish[]>;
+  dish: Observable<Dish[]>;
   order: Order = new Order();
   submitted = false;
   loading = false;
-  dishStorage: string;
-  dish: Dish;
+  // dish: Dish;
+  basket: any[];
 
   constructor(private orderService: OrderService,
-              private router: Router) {
+              private router: Router,
+              private basketService: BasketService) {
   }
   ngOnInit(): void {
     this.reloadData();
@@ -30,16 +32,17 @@ export class BasketComponent implements OnInit {
   }
   //
   reloadData() {
-    this.get(this.dish.id, this.dish.price, this.dish.name);
+    this.basket = this.basketService.getItems();
+    // this.get(this.dish.id, this.dish.price, this.dish.name);
   }
   //
 
-  get(id: number, priceD: string, name: string){
-    sessionStorage.getItem(String(id));
-    sessionStorage.getItem( priceD);
-    sessionStorage.getItem(name);
-    console.log(id, priceD, name);
-  }
+  // get(id: number, priceD: string, name: string){
+  //   sessionStorage.getItem(String(id));
+  //   sessionStorage.getItem( priceD);
+  //   sessionStorage.getItem(name);
+  //   console.log(id, priceD, name);
+  // }
   save() {
     this.loading = true;
 
@@ -59,6 +62,10 @@ export class BasketComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/klient']);
+  }
+
+  delete(dish: Dish) {
+    console.log('deleting', dish);
   }
 
 }
