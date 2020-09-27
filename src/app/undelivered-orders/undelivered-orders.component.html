@@ -15,10 +15,10 @@
         <tr *ngFor="let order of orders | async">
           <td>{{onFormatDate(order.date)}}</td>
           <td [ngClass]="{
-            'ordered' : order.status == 'ORDER',
-            'prepared' : order.status == 'PREPARED',
-            'delivered' : order.status == 'DELIVERED'
-            }"> {{order.status}}</td>
+            'ordered' : statusShow[order.status] == 'Złożone',
+            'prepared' : statusShow[order.status] == 'Przygotowane',
+            'delivered' : statusShow[order.status] == 'Dostarczone'
+            }"> {{statusShow[order.status]}}</td>
           <td>
             <form (ngSubmit)="onSubmit()">
               <button (click)="assignmentOrder(order.id)" class="btn btn-primary" style="margin-left: 10px" id="k2">Przyjmij do realizacji</button>

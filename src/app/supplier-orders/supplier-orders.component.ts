@@ -13,7 +13,11 @@ import * as moment from 'moment';
   styleUrls: ['./supplier-orders.component.css']
 })
 export class SupplierOrdersComponent implements OnInit {
-
+  statusShow = {
+    DELIVERED: 'Dostarczone',
+    ORDER: 'Zamówione',
+    PREPARED: 'Przygotowane'
+  };
   orders: Observable<Order[]>;
   orderId: number;
   id: number;

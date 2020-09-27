@@ -10,3 +10,5 @@ export class Order{
   supplier: Supplier;
   customer: Customer;
 }
+
+

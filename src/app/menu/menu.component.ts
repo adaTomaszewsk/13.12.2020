@@ -12,6 +12,7 @@ import {DishService} from '../services';
 export class MenuComponent implements OnInit {
 
   dishes: Observable<Dish[]>;
+  orders = [];
 
   constructor(private dishService: DishService,
               private router: Router) {}

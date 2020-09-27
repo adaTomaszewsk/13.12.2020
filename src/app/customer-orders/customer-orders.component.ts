@@ -12,7 +12,11 @@ import * as moment from 'moment';
   styleUrls: ['./customer-orders.component.css']
 })
 export class CustomerOrdersComponent implements OnInit {
-
+  statusShow = {
+    DELIVERED: 'Dostarczone',
+    ORDER: 'Zamówione',
+    PREPARED: 'Przygotowane'
+  };
   id: number;
   orders: Observable<Order[]>;
 

@@ -13,7 +13,11 @@ import * as moment from 'moment';
   styleUrls: ['./undelivered-orders.component.css']
 })
 export class UndeliveredOrdersComponent implements OnInit {
-
+  statusShow = {
+    DELIVERED: 'Dostarczone',
+    ORDER: 'Zamówione',
+    PREPARED: 'Przygotowane'
+  };
   orders: Observable<Order[]>;
   private assignmentOrderSubscription: Subscription;
 
