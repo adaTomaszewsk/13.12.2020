@@ -6,15 +6,5 @@ export class User {
   password: string;
   token: string;
   tokenType: string;
-  // name: string;
-  // surname: string;
   userRoles: Role;
-  // userRoles: [];
-  // accountNonExpired;
-  //
-  // accountNonLocked: boolean;
-  //
-  // credentialsNonExpired: boolean;
-  //
-  // enabled: boolean;
 }

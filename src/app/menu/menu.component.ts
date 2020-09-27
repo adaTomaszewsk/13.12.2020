@@ -18,13 +18,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-    // this.id_Patient= JSON.parse(localStorage.getItem('currentUser')).userId;
   }
-
-  // reloadData() {
-  //   this.forms = this.formService.getFormList();
-  // }
-
   reloadData() {
     this.dishes = this.dishService.getDishes();
   }

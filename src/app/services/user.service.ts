@@ -17,10 +17,6 @@ export class UserService {
   constructor(private http: HttpClient, private sessionService: SessionStorageService) {
   }
 
-  // public get currentUserValue(): string {
-  //   return this.currentUserSubject.value;
-  // }
-  //
   getCustomer(id: number): Observable<any> {
     const userToken = this.sessionService.get('currentUser').token;
     const userId = this.sessionService.get('currentUser').id;
@@ -34,8 +30,6 @@ export class UserService {
     };
     return this.http.get(`http://localhost:8080/customers` + '/' + userId, httpOptions);
   }
-  //
-  //
   // tslint:disable-next-line:ban-types
   updateCustomer(customer: Object, id: number): Observable<Object> {
     const userToken = this.sessionService.get('currentUser').token;

@@ -28,6 +28,4 @@ export class CustomerOrdersComponent implements OnInit {
   reloadData() {
     this.orders = this.orderService.getCustomerOrders(this.id);
   }
-
-
 }

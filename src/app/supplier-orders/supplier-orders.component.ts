@@ -35,17 +35,10 @@ export class SupplierOrdersComponent implements OnInit {
     this.orderService.changeStatus(orderId)
       .pipe(take(1))
       .subscribe(() => {
-        this.gotoList();
+        this.reloadData();
       }, error => console.log(error));
   }
 
   onSubmit() {
-    // this.changeStatus();
   }
-
-  gotoList() {
-    this.router.navigate(['/dostawca/realizowane_zamowienia']);
-  }
-
-
 }

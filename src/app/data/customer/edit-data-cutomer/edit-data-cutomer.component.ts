@@ -28,8 +28,6 @@ export class EditDataCutomerComponent implements OnInit {
         console.log(data);
         this.customer = data;
       }, error => console.log(error));
-
-
   }
 
   updateCustomer() {
