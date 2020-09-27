@@ -1,12 +1,12 @@
 export interface DishInterface {
-  id_dish: number;
+  id: number;
   name: string;
   price: string;
 }
 
 
 export class Dish implements DishInterface{
-  id_dish: number;
+  id: number;
   name: string;
   price: string;
 }

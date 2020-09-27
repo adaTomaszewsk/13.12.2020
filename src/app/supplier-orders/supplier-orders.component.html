@@ -11,8 +11,12 @@
     </thead>
     <tbody>
         <tr *ngFor="let order of orders | async">
-          <td>{{order.date}}</td>
-          <td>{{order.status}}</td>
+          <td>{{onFormatDate(order.date)}}</td>
+          <td [ngClass]="{
+            'ordered' : order.status == 'ORDER',
+            'prepared' : order.status == 'PREPARED',
+            'delivered' : order.status == 'DELIVERED'
+            }"> {{order.status}}</td>
           <td>
             <form (ngSubmit)="onSubmit()">
               <button (click)="changeStatus(order.id)" class="btn btn-primary" *ngIf="order.status === 'PREPARED'" style="margin-left: 10px" id="k2">Dostarczone do klienta</button>

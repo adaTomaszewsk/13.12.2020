@@ -24,11 +24,11 @@ export class AlertsComponent implements OnInit {
             message.cssClass = 'alert alert-danger';
             break;
         }
-console.log(message);
         this.message = message;
       });
   }
 
+  // tslint:disable-next-line:use-lifecycle-interface
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

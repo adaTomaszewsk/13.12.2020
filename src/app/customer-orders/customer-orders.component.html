@@ -9,9 +9,12 @@
     </thead>
     <tbody>
         <tr *ngFor="let order of orders | async">
-          <td>{{order.date}}</td>
-          <td>{{order.status}}</td>
-        </tr>
+          <td>{{onFormatDate(order.date)}}</td>
+          <td [ngClass]="{
+            'ordered' : order.status == 'ORDER',
+            'prepared' : order.status == 'PREPARED',
+            'delivered' : order.status == 'DELIVERED'
+            }"> {{order.status}}</td>        </tr>
     </tbody>
   </table>
 </div>

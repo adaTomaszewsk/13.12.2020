@@ -4,6 +4,7 @@ import {SessionStorageService} from '../services/session-storage';
 import {Dish, Order} from '../models';
 import {DishService, OrderService} from '../services';
 import {Observable} from 'rxjs';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-customer-orders',
@@ -27,5 +28,9 @@ export class CustomerOrdersComponent implements OnInit {
 
   reloadData() {
     this.orders = this.orderService.getCustomerOrders(this.id);
+  }
+
+  onFormatDate(date: string) {
+    return moment(date).format('DD.MM.YYYY, HH:mm:ss');
   }
 }

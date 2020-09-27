@@ -23,4 +23,14 @@ export class MenuComponent implements OnInit {
     this.dishes = this.dishService.getDishes();
   }
 
+  // add(dishId: number){
+  //   sessionStorage.setItem('id', String(dishId));
+  //   console.log(dishId);
+  // }
+  add(id: number, priceD: string, name: string){
+    sessionStorage.setItem('id', String(id));
+    sessionStorage.setItem('priceD', priceD);
+    sessionStorage.setItem('name', name);
+    console.log(id, priceD, name);
+  }
 }

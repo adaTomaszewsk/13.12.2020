@@ -15,7 +15,6 @@ import { UndeliveredOrdersComponent } from './undelivered-orders/undelivered-ord
 import { BasketComponent } from './basket/basket.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {OrderComponent} from './order/order.component';
 import {AlertsComponent} from './alerts/alerts.component';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import {HttpXsrfInterceptor} from './auth/HttpXsrfInterceptor';
@@ -37,7 +36,6 @@ import {EditDataSupplierComponent} from './data/supplier/edit-data-supplier/edit
         BasketComponent,
         LoginComponent,
         RegisterComponent,
-        OrderComponent,
         DataCutomerComponent,
         DataSupplierComponent,
         EditDataCutomerComponent,

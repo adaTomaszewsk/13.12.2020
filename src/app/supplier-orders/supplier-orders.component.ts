@@ -5,6 +5,7 @@ import {OrderService} from '../services';
 import {Router} from '@angular/router';
 import {SessionStorageService} from '../services/session-storage';
 import {take} from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-supplier-orders',
@@ -40,5 +41,13 @@ export class SupplierOrdersComponent implements OnInit {
   }
 
   onSubmit() {
+  }
+
+  // getDate(date: string) {
+  //   return moment(date).locale('pl').format('LLL');
+  // }
+
+  onFormatDate(date: string) {
+    return moment(date).format('DD.MM.YYYY, HH:mm:ss');
   }
 }

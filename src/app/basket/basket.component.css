@@ -68,7 +68,7 @@ input {
 }
 
 button {
-  width: 190px;
+  width: 150px;
   height: 60px;
   background-color: white;
   color: #DAA520;
@@ -87,6 +87,11 @@ button[disabled]{
   font-weight: bolder;
   display: block;
   font-size: 17px;
+}
+button:hover {
+  background-color: #DAA520;
+  color: white;
+  border: #DAA520;
 }
 
 label {
@@ -116,4 +121,13 @@ label {
 
 h4{
   color: dimgrey;
+}
+hr{
+  margin-top: 50px;
+   /*width: 800px;*/
+}
+#right{
+  color: dimgray;
+  font-size: 17px;
+
 }

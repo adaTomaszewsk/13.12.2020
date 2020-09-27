@@ -10,9 +10,9 @@
     <tbody>
         <tr *ngFor="let dish of dishes | async">
           <td>{{dish.name}}</td>
-          <td>{{dish.price}}</td>
+          <td>{{dish.price}} zł</td>
           <td>
-            <button class="btn btn-info" style="margin-left: 10px" id="k">Dodaj do zamówienia</button>
+            <button (click)="add(dish.id, dish.price, dish.name)" class="btn btn-info" style="margin-left: 10px" id="k">Dodaj do zamówienia</button>
           </td>
         </tr>
     </tbody>

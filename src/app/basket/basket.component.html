@@ -4,7 +4,7 @@
   <br>
   <br>
 
-  <table class="table table-borderless">
+  <table id=table class="table table-borderless">
     <thead>
     <tr>
       <th>Danie</th>
@@ -12,15 +12,19 @@
     </tr>
     </thead>
     <tbody>
-    <!--    <tr *ngFor="let form of forms | async">-->
-    <!--      <td>{{form.subject}}</td>-->
-    <!--      <td>{{form.status}}</td>-->
-    <!--      <td>-->
-    <!--        <button (click)="formDetails(form.id_Form)" class="btn btn-info" style="margin-left: 10px" id="k">Usuń</button>-->
-    <!--      </td>-->
-    <!--    </tr>-->
+    <tr *ngFor="let dishStorage of dishes | async">
+          <td>{{dishStorage.name}}</td>
+          <td>{{dishStorage.price}} zł</td>
+          <td>
+            <span ng-click="removeItem($index)" class="pointer glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </td>
+    </tr>
+    <hr>
+    <tr>
+          <th id="right">Kwota zamówienia: <span ng-bind="total" ></span><span> zł</span></th>
+    </tr>
     </tbody>
   </table>
   <br>
-  <button class="btn btn-primary"><i class="fas fa-arrow-circle-right"></i>  Zamów</button><br>
+  <button class="btn btn-primary" (click)="save()"><i class="fas fa-arrow-circle-right"></i>  Zamów</button><br>
 </div>

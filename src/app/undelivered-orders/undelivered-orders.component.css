@@ -25,3 +25,14 @@ h2{
   margin-bottom: 20px;
 }
 
+.ordered {
+  color: dimgray;
+}
+
+.delivered {
+  color: limegreen;
+}
+
+.prepared {
+  color: darkblue;
+}

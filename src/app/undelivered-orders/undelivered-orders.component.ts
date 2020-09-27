@@ -5,6 +5,7 @@ import {OrderService} from '../services';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SessionStorageService} from '../services/session-storage';
 import { take } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-undelivered-orders',
@@ -51,9 +52,8 @@ export class UndeliveredOrdersComponent implements OnInit {
     this.router.navigate(['/dostawca/realizowane_zamowienia']);
   }
 
-  // //UNSUBUJ!!!!
-  // ngOnDestroy() {
-  //   this.assignmentOrderSubscription.unsubscribe();
-  // }
+  onFormatDate(date: string) {
+    return moment(date).format('DD.MM.YYYY, HH:mm:ss');
+  }
 
 }
