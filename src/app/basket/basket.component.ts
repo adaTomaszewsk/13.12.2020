@@ -19,7 +19,9 @@ export class BasketComponent implements OnInit {
   order: Order = new Order();
   submitted = false;
   loading = false;
+  // dish: Dish;
   basket: any[];
+  sum: number;
 
   constructor(private orderService: OrderService,
               private router: Router,
@@ -30,6 +32,7 @@ export class BasketComponent implements OnInit {
   }
   reloadData() {
     this.basket = this.basketService.getItems();
+    this.sum = this.basket.reduce((acc, curr) => acc + curr.price, 0);
   }
   save() {
     this.loading = true;
@@ -46,24 +49,20 @@ export class BasketComponent implements OnInit {
         });
     this.order = new Order();
     this.gotoList();
-    // this.basketService.clear();
   }
 
   gotoList() {
     this.router.navigate(['/klient']);
   }
 
-  // gotoList(): void {
-  //   sessionStorage.clear();
-  //   this.router.navigate(['/klient']);
-  // }
-
   removeItem(id: number){
     this.basketService.removeItem(id);
+    this.reloadData();
   }
 
-  checkout(checkout: number){
-    checkout = this.basket.reduce((a, b) => a + b.price, 0);
-  }
+  // checkout(checokut: number){
+  //   this.sum(checokut);
+  // }
+
 
 }

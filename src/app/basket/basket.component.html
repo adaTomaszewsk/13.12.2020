@@ -14,18 +14,21 @@
     </thead>
     <tbody>
     <tr *ngFor="let item of basket">
-          <td>{{item.name}}</td>
-          <td>{{item.price}} zł</td>
-          <td>
-            <form>
-              <span (click)="removeItem(item.id)" id="trash" class="far fa-trash-alt"></span>
-            </form>
-          </td>
+      <td>{{item.name}}</td>
+      <td>{{item.price}} zł</td>
+      <td>
+        <form>
+          <span (click)="removeItem(item.id)" id="trash" class="far fa-trash-alt"></span>
+        </form>
+      </td>
     </tr>
     <hr>
     <tr>
-          <th id="right">Koszt zamówienia: <span ></span><span> zł</span></th>
+<!--      <th id="right">Koszt zamówienia: <span ng-bind="price"(show)="checkout()" ></span><span> zł</span></th>-->
+      <th id="right">Koszt zamówienia: <span ng-bind="price" ></span><span> zł</span></th>
+
     </tr>
+    <td></td>
     </tbody>
   </table>
   <br>
