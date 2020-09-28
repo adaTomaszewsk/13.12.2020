@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Dish, Order} from '../models';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
@@ -25,7 +25,8 @@ export class BasketComponent implements OnInit {
 
   constructor(private orderService: OrderService,
               private router: Router,
-              private basketService: BasketService) {
+              private basketService: BasketService,
+              private changeDetectorRef: ChangeDetectorRef) {
   }
   ngOnInit(): void {
     this.reloadData();
@@ -33,6 +34,7 @@ export class BasketComponent implements OnInit {
   reloadData() {
     this.basket = this.basketService.getItems();
     this.sum = this.basket.reduce((acc, curr) => acc + curr.price, 0);
+    this.changeDetectorRef.detectChanges();
   }
   save() {
     this.loading = true;
