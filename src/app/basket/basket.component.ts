@@ -19,7 +19,6 @@ export class BasketComponent implements OnInit {
   order: Order = new Order();
   submitted = false;
   loading = false;
-  // dish: Dish;
   basket: any[];
 
   constructor(private orderService: OrderService,
@@ -47,15 +46,24 @@ export class BasketComponent implements OnInit {
         });
     this.order = new Order();
     this.gotoList();
+    // this.basketService.clear();
   }
 
   gotoList() {
     this.router.navigate(['/klient']);
   }
 
+  // gotoList(): void {
+  //   sessionStorage.clear();
+  //   this.router.navigate(['/klient']);
+  // }
+
   removeItem(id: number){
     this.basketService.removeItem(id);
   }
 
+  checkout(checkout: number){
+    checkout = this.basket.reduce((a, b) => a + b.price, 0);
+  }
 
 }
