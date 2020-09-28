@@ -28,21 +28,10 @@ export class BasketComponent implements OnInit {
   }
   ngOnInit(): void {
     this.reloadData();
-    // sessionStorage.getItem('id');
   }
-  //
   reloadData() {
     this.basket = this.basketService.getItems();
-    // this.get(this.dish.id, this.dish.price, this.dish.name);
   }
-  //
-
-  // get(id: number, priceD: string, name: string){
-  //   sessionStorage.getItem(String(id));
-  //   sessionStorage.getItem( priceD);
-  //   sessionStorage.getItem(name);
-  //   console.log(id, priceD, name);
-  // }
   save() {
     this.loading = true;
 
@@ -64,8 +53,9 @@ export class BasketComponent implements OnInit {
     this.router.navigate(['/klient']);
   }
 
-  delete(dish: Dish) {
-    console.log('deleting', dish);
+  removeItem(id: number){
+    this.basketService.removeItem(id);
   }
+
 
 }

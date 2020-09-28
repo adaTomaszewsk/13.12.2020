@@ -16,7 +16,9 @@ export class BasketService implements OnDestroy {
   getItems() {
     return Array.from(this.basket.values());
   }
-
+  removeItem(id){
+    return this.removeItem(id);
+  }
   ngOnDestroy() {
     sessionStorage.setItem('basket', JSON.stringify(this.basket));
   }

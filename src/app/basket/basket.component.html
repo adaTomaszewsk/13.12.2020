@@ -9,19 +9,22 @@
     <tr>
       <th>Danie</th>
       <th>Cena</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let item of basket">
           <td>{{item.name}}</td>
           <td>{{item.price}} zł</td>
-<!--          <td>-->
-<!--            <span ng-click="removeItem($index)" class="pointer glyphicon glyphicon-remove" aria-hidden="true"></span>-->
-<!--          </td>-->
+          <td>
+            <form>
+              <span (click)="removeItem(item.id)" id="trash" class="far fa-trash-alt"></span>
+            </form>
+          </td>
     </tr>
     <hr>
     <tr>
-          <th id="right">Kwota zamówienia: <span ng-bind="total" ></span><span> zł</span></th>
+          <th id="right">Koszt zamówienia: <span ng-bind="price" ></span><span> zł</span></th>
     </tr>
     </tbody>
   </table>
@@ -29,3 +32,8 @@
   <button class="btn btn-primary" (click)="save()"><i class="fas fa-arrow-circle-right"></i>  Zamów</button><br>
 </div>
 
+<script>
+  import * as basket from "rxjs";
+
+  const price = basket.reduce((a,b)=> a+b.price, 0);
+</script>

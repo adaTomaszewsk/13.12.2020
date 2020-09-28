@@ -76,7 +76,7 @@ button {
   font-weight: bolder;
   display: block;
   font-size: 17px;
-  margin-left: 20px;
+  margin-left: 6px;
 }
 
 button[disabled]{
@@ -131,4 +131,10 @@ hr{
   color: dimgray;
   font-size: 17px;
 
+}
+
+#trash{
+  color: darkred;
+  border: 2px solid white;
+  font-size: larger;
 }
