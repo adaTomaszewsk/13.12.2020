@@ -4,14 +4,12 @@
     <thead>
     <tr>
       <th>Data</th>
-      <th>Cena</th>
       <th>Status</th>
     </tr>
     </thead>
     <tbody>
         <tr *ngFor="let order of orders | async">
           <td>{{onFormatDate(order.date)}}</td>
-          <td></td>
           <td [ngClass]="{
             'ordered' : statusShow[order.status] == 'Złożone',
             'prepared' : statusShow[order.status] == 'Przygotowane',
