@@ -61,10 +61,4 @@ export class BasketComponent implements OnInit {
     this.basketService.removeItem(id);
     this.reloadData();
   }
-
-  // checkout(checokut: number){
-  //   this.sum(checokut);
-  // }
-
-
 }

@@ -31,16 +31,15 @@ export class UserService {
     return this.http.get(`http://localhost:8080/customers` + '/' + userId, httpOptions);
   }
   // tslint:disable-next-line:ban-types
-  updateCustomer(customer: Object, id: number): Observable<Object> {
+  updateCustomer(customer: Object): Observable<Object> {
     const userToken = this.sessionService.get('currentUser').token;
-    const userId = this.sessionService.get('currentUser').id;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + userToken
       })
     };
-    return this.http.put(`${this.baseUrl}` + '/' + userId, customer, httpOptions);
+    return this.http.put(`${this.baseUrl}`, customer, httpOptions);
   }
 
   deleteCustomer(): Observable<any> {
@@ -79,16 +78,15 @@ export class UserService {
   }
 
   // tslint:disable-next-line:ban-types
-  updateSupplier(supplier: Object, id: number): Observable<Object> {
+  updateSupplier(supplier: Object): Observable<Object> {
     const userToken = this.sessionService.get('currentUser').token;
-    const userId = this.sessionService.get('currentUser').id;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + userToken
       })
     };
-    return this.http.put(`http://localhost:8080/suppliers` + '/' + userId, supplier, httpOptions);
+    return this.http.put(`http://localhost:8080/suppliers`, supplier, httpOptions);
   }
 
 }

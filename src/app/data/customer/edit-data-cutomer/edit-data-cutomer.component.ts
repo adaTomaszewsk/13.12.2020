@@ -31,7 +31,7 @@ export class EditDataCutomerComponent implements OnInit {
   }
 
   updateCustomer() {
-    this.customerService.updateCustomer(this.customer, this.idCustomer)
+    this.customerService.updateCustomer(this.customer)
       .subscribe(data => {
         this.gotoList();
       }, error => console.log(error));

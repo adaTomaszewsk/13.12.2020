@@ -3,7 +3,6 @@ import { Injectable, OnDestroy} from '@angular/core';
   providedIn: 'root',
 })
 export class BasketService implements OnDestroy {
-  BasketItem: object;
   private basket: Map<string, any>;
   id: number;
   price: number;

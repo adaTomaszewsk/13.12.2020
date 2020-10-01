@@ -33,7 +33,7 @@ export class EditDataSupplierComponent implements OnInit {
   }
 
   updateSupplier() {
-    this.supplierService.updateSupplier(this.supplier, this.idSupplier)
+    this.supplierService.updateSupplier(this.supplier)
       .subscribe(data => {
         this.gotoList();
       }, error => console.log(error));
