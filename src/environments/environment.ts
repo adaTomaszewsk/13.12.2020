@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080'
+  firebaseConfig: {
+    apiKey: 'AIzaSyDXxpxn5Lk8IZiyQDtQDbh9QPxnaDml4jE',
+    authDomain: 'sharemeal-f6381.firebaseapp.com',
+    databaseURL: 'https://sharemeal-f6381.firebaseio.com',
+    projectId: 'sharemeal-f6381',
+    storageBucket: 'sharemeal-f6381.appspot.com',
+    messagingSenderId: '135229201487',
+    appId: '1:135229201487:web:2b727afd03660027891e3a',
+    measurementId: 'G-5PZ026Z6RH'
+  }
 };
 
 /*
@@ -14,4 +23,3 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

@@ -26,7 +26,9 @@ import {EditDataSupplierComponent} from './data/supplier/edit-data-supplier/edit
 import {HistoryComponent } from './history/history.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewMealComponent } from './new-meal/new-meal.component';
-
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 @NgModule({
     declarations: [
         AppComponent,
@@ -49,6 +51,8 @@ import { NewMealComponent } from './new-meal/new-meal.component';
         NewMealComponent,
     ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     BrowserModule,
     // NgModule,
     FormsModule,
