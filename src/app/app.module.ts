@@ -51,6 +51,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
         NewMealComponent,
     ],
   imports: [
+    // AngularFireAuthModule, // auth
+    // AngularFireStorageModule // storage
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     BrowserModule,
@@ -85,3 +87,4 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
