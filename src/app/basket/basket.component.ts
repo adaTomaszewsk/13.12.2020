@@ -7,6 +7,8 @@ import {first} from 'rxjs/operators';
 import {HttpErrorResponse} from '@angular/common/http';
 import {OrderService} from '../services';
 import {BasketService} from '../services/basket.service';
+import {SessionStorageService} from '../services/session-storage';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-basket',
@@ -15,50 +17,27 @@ import {BasketService} from '../services/basket.service';
 })
 export class BasketComponent implements OnInit {
 
-  dish: Observable<Dish[]>;
-  order: Order = new Order();
-  submitted = false;
-  loading = false;
-  // dish: Dish;
-  basket: any[];
-  sum: number;
+  statusShow = {
+    DELIVERED: 'Dostarczone',
+    ORDER: 'Zamówione',
+    PREPARED: 'Przygotowane'
+  };
+  id: number;
+  orders: Observable<Order[]>;
 
   constructor(private orderService: OrderService,
               private router: Router,
-              private basketService: BasketService,
-              private changeDetectorRef: ChangeDetectorRef) {
-  }
-  ngOnInit(): void {
+              private sessionService: SessionStorageService) { }
+
+  ngOnInit() {
     this.reloadData();
+    const currentUser = this.sessionService.get('currentUser');
+    this.id = currentUser.id;
   }
+
   reloadData() {
-    this.basket = this.basketService.getItems();
-    this.sum = this.basket.reduce((acc, curr) => acc + curr.price, 0);
-    this.changeDetectorRef.detectChanges();
-  }
-  save() {
-    this.loading = true;
-
-    this.orderService.addOrder(this.order)
-      .pipe(first())
-      .subscribe(
-        data => {
-          console.log(data);
-          this.router.navigate(['/klient']);
-        },
-        (httpErrorResponse: HttpErrorResponse) => {
-          this.loading = false;
-        });
-    this.order = new Order();
-    this.gotoList();
+    this.orders = this.orderService.getCustomerOrders(this.id);
   }
 
-  gotoList() {
-    this.router.navigate(['/klient']);
-  }
 
-  removeItem(id: number){
-    this.basketService.removeItem(id);
-    this.reloadData();
-  }
 }

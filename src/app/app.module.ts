@@ -23,6 +23,9 @@ import {DataCutomerComponent} from './data/customer/data-cutomer/data-cutomer.co
 import {DataSupplierComponent} from './data/supplier/data-supplier/data-supplier.component';
 import {EditDataCutomerComponent} from './data/customer/edit-data-cutomer/edit-data-cutomer.component';
 import {EditDataSupplierComponent} from './data/supplier/edit-data-supplier/edit-data-supplier.component';
+import {HistoryComponent } from './history/history.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { NewMealComponent } from './new-meal/new-meal.component';
 
 @NgModule({
     declarations: [
@@ -41,6 +44,9 @@ import {EditDataSupplierComponent} from './data/supplier/edit-data-supplier/edit
         EditDataCutomerComponent,
         EditDataSupplierComponent,
         AlertsComponent,
+        HistoryComponent,
+        ResetPasswordComponent,
+        NewMealComponent,
     ],
   imports: [
     BrowserModule,

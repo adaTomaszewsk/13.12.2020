@@ -1,23 +1,24 @@
 #k{
-  width: 100px;
   background-color: white;
   color: dimgrey;
   border: 2px solid dimgrey;
   font: bold 15px Calibri;
   margin-top: 5px;
+  width: 80px;
 }
 
 #k2{
-  width: 135px;
   background-color: white;
-  color: #DAA520	;
-  border: 2px solid #DAA520	;
+  color: green;
+  border: 2px solid green;
   font: bold 15px Calibri;
   margin-top: 5px;
+  width: 80px;
+  margin-left: 20px;
 }
 
 h2{
-  color: #DAA520;
+  color: #7720da;
   font-weight: bold;
   font-family: Calibri;
   margin-top: 50px;

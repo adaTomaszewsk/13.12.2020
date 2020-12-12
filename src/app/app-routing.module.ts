@@ -16,6 +16,9 @@ import {EditDataCutomerComponent} from './data/customer/edit-data-cutomer/edit-d
 import {DataSupplierComponent} from './data/supplier/data-supplier/data-supplier.component';
 import {EditDataSupplierComponent} from './data/supplier/edit-data-supplier/edit-data-supplier.component';
 import {SupplierAuthGuard} from './auth/supplierAuth.guard';
+import {HistoryComponent} from './history/history.component';
+import {ResetPasswordComponent } from './reset-password/reset-password.component';
+import {NewMealComponent} from './new-meal/new-meal.component';
 
 const appRoutes: Routes = [
   // {
@@ -31,9 +34,12 @@ const appRoutes: Routes = [
       {path: '', redirectTo: 'menu', pathMatch: 'full'},
       {path: 'menu', component: MenuComponent, canActivate: [AuthGuard]},
       {path: 'historia', component: CustomerOrdersComponent, canActivate: [AuthGuard]},
+      {path: 'historia2', component: HistoryComponent, canActivate: [AuthGuard]},
       {path: 'koszyk', component: BasketComponent, canActivate: [AuthGuard]},
       {path: 'dane_osobowe_klienta', component: DataCutomerComponent, canActivate: [AuthGuard]},
       {path: 'edycja_danych_klienta', component: EditDataCutomerComponent, canActivate: [AuthGuard]},
+      {path: 'nowe_zamowienie', component: NewMealComponent, canActivate: [AuthGuard]},
+
     ]
   },
   {
@@ -49,6 +55,7 @@ const appRoutes: Routes = [
 
   {path: 'logowanie', component: LoginComponent},
   {path: 'rejestracja', component: RegisterComponent},
+  {path: 'haslo/resetuj', component: ResetPasswordComponent},
   {path: '**', redirectTo: 'logowanie'},
 
 ];

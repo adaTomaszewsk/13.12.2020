@@ -1,20 +1,32 @@
 <div classes="col-xs-12">
-  <h2>Zamówienia</h2>
+  <h2>Orders</h2>
   <table class="table table-hover">
     <thead>
     <tr>
-      <th>Data</th>
+      <th>Name</th>
+      <th>Pickup hours</th>
+      <th>Information</th>
       <th>Status</th>
     </tr>
     </thead>
     <tbody>
         <tr *ngFor="let order of orders | async">
           <td>{{onFormatDate(order.date)}}</td>
+          <td></td>
+          <td></td>
           <td [ngClass]="{
             'ordered' : statusShow[order.status] == 'Złożone',
             'prepared' : statusShow[order.status] == 'Przygotowane',
             'delivered' : statusShow[order.status] == 'Dostarczone'
-            }"> {{statusShow[order.status]}}</td>        </tr>
+            }"> {{statusShow[order.status]}}</td>
+          <td>
+            <button class="btn btn-danger" id="k">Resign</button>
+            <button class="btn btn-danger" id="k2">Done</button>
+
+            <!--            <button (click)="add(dish.id, dish.price, dish.name)" class="btn btn-danger" id="k">Delete</button>-->
+
+          </td>
+        </tr>
     </tbody>
   </table>
 </div>

@@ -1,5 +1,5 @@
 h1 {
-  color: #DAA520;
+  color: #7720da;
   font-weight: bold;
   font-family: Calibri;
   margin-top: 30px;
@@ -25,8 +25,8 @@ button {
   height: 60px;
   margin-left: 300px;
   background-color: white;
-  color: #DAA520;
-  border: 2px solid #DAA520;
+  color: #7720da;
+  border: 2px solid #7720da;
   font-weight: bolder;
   display: block;
   font-size: 20px;
@@ -37,25 +37,39 @@ button[disabled]{
   height: 60px;
   margin-left: 320px;
   background-color: white;
-  color: #DAA520;
-  border: 2px solid #DAA520;
+  color: #7720da;
+  border: 2px solid #7720da;
   font-weight: bolder;
   display: block;
   font-size: 20px;
   margin-bottom: 20px;
 }
 button:hover {
-  background-color: #DAA520;
+  background-color: #7720da;
+
   color: white;
-  border: #DAA520;
+  border: #7720da;
+
 }
 a{
-  color: #DAA520;
+  color: #7720da;
   font: Bold 22px Calibri;
   margin-top: 0px;
   margin-bottom: 10px;
   margin-left: 25px;
 }
+
+register{
+  margin-left: 300px;
+  background-color: white;
+  color: #7720da;
+  border: 2px solid #7720da;
+  font-weight: bolder;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
 
 label {
   display: block;

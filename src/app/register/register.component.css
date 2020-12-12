@@ -1,5 +1,5 @@
 h1 {
-  color: #DAA520;
+  color: #7720da;
   font-weight: bold;
   font-family: Calibri;
   margin-top: 30px;
@@ -11,7 +11,7 @@ h1 {
   margin: 50px auto auto;
 
   width: 550px;
-  height: 680px;
+  /*height: 600px;*/
   padding: 15px 0 0;
   background: #fff;
   border: 1px solid silver;
@@ -27,8 +27,9 @@ button {
   height: 60px;
   margin-left: 320px;
   background-color: white;
-  color:#DAA520;
-  border: 2px solid #DAA520;
+  color: #7720da;
+  border: 2px solid #7720da;
+
   font-weight: bolder;
   display: block;
   font-size: 20px;
@@ -39,17 +40,18 @@ button[disabled]{
   height: 60px;
   margin-left: 320px;
   background-color: white;
-  color: #DAA520;
-  border: 2px solid #DAA520;
+  color: #7720da;
+  border: 2px solid #7720da;
   font-weight: bolder;
   display: block;
   font-size: 20px;
   margin-bottom: 20px;
 }
 button:hover {
-  background-color: #DAA520;
+  background-color: #7720da;
   color: white;
-  border: #DAA520;
+  border: #7720da;
+
 }
 
 input {

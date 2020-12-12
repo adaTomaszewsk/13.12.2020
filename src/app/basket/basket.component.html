@@ -1,36 +1,31 @@
 <div classes="col-xs-12">
-  <h2>Twoje zamówienie</h2>
-
-  <br>
-  <br>
-
-  <table id=table class="table table-borderless">
+  <h2>Orders</h2>
+  <table class="table table-hover">
     <thead>
     <tr>
-      <th>Danie</th>
-      <th>Cena</th>
-      <th></th>
+      <th>Name</th>
+      <th>Pickup hours</th>
+      <th>Information</th>
+      <th>Status</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of basket">
-      <td>{{item.name}}</td>
-      <td>{{item.price}} zł</td>
+    <tr *ngFor="let order of orders | async">
+      <td>{{(order.date)}}</td>
+      <td></td>
+      <td></td>
+      <td [ngClass]="{
+            'ordered' : statusShow[order.status] == 'Złożone',
+            'prepared' : statusShow[order.status] == 'Przygotowane',
+            'delivered' : statusShow[order.status] == 'Dostarczone'
+            }"> {{statusShow[order.status]}}</td>
       <td>
-        <form>
-          <span (click)="removeItem(item.id)" id="trash" class="far fa-trash-alt"></span>
-        </form>
+        <button class="btn btn-danger" id="k">Reserve</button>
+
+        <!--            <button (click)="add(dish.id, dish.price, dish.name)" class="btn btn-danger" id="k">Delete</button>-->
+
       </td>
     </tr>
-    <hr>
-    <tr>
-      <!--      <th id="right">Koszt zamówienia: <span ng-bind="price"(show)="checkout()" ></span><span> zł</span></th>-->
-      <th id="right">Koszt zamówienia: <span ng-bind="price" >{{sum}}</span><span> zł</span></th>
-
-    </tr>
-    <td></td>
     </tbody>
   </table>
-  <br>
-  <button class="btn btn-primary" (click)="save()"><i class="fas fa-arrow-circle-right"></i>  Zamów</button><br>
 </div>

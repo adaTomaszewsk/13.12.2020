@@ -1,18 +1,23 @@
 <div classes="col-xs-12">
-  <h2>Menu</h2>
+  <h2>My meals</h2>
+  <button class="btn btn-primary" style="margin-right: 10px" id="add" routerLink="/klient/nowe_zamowienie"><i class="fas fa-plus"></i>  Add new meal</button>
   <table class="table table-hover">
     <thead>
     <tr>
-      <th>Nazwa dania</th>
-      <th>Cena</th>
+      <th>Name</th>
+      <th>Pickup hours</th>
+      <th>Information</th>
+      <th>Status</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let dish of dishes | async">
       <td>{{dish.name}}</td>
-      <td>{{dish.price}} zł</td>
+      <td>{{dish.price}}</td>
+      <td></td>
+      <td></td>
       <td>
-        <button (click)="add(dish.id, dish.price, dish.name)" class="btn btn-info" style="margin-left: 10px" id="k">Dodaj do zamówienia</button>
+        <button (click)="add(dish.id, dish.price, dish.name)" class="btn btn-danger" id="k">Delete</button>
       </td>
     </tr>
     </tbody>

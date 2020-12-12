@@ -3,7 +3,7 @@ ul {
 }
 
 a{
-  color: #DAA520;
+  color: #7720da;
   font-weight: bolder;
   font: 25px calibri;
   margin-top: 0px;
@@ -22,39 +22,10 @@ a{
   margin: auto auto auto;
 }
 #panel2{
-  height: 80px;
+  height: 100px;
 }
-#k1{
-  font: 18px Calibri;
-  margin-top: -40px;
-}
+
 #k2{
   font: 18px Calibri;
   margin-top: -40px;
 }
-
-/*#panel3 {*/
-/*  height: 50px;*/
-/*  bottom: 0;*/
-/*  position: static;*/
-/*}*/
-/*.footer{*/
-/*  clear:both;*/
-/*  width:100%;*/
-/*  float:left;*/
-/*  display:block;}*/
-/*footer{*/
-/*@include zero-margin(20px, 0px);*/
-/*}*/
-/*#email {*/
-/*  font: 18px Calibri;*/
-/*  color: dimgray;*/
-/*  margin-right: -20px;*/
-/*}*/
-/*#color{*/
-/*  color: dimgray;*/
-/*  margin-top: 15%;*/
-/*}*/
-/*hr{*/
-/*  width: 600px;*/
-/*}*/
